@@ -1,0 +1,34 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          [
+            {
+
+              "lat": "48.818566",
+              "lng": "2.419366"
+
+            },
+            {
+
+              "lat": "25.809222",
+              "lng": "-80.189828"
+
+            },
+            {
+
+              "lat": "43.572438",
+              "lng": "1.402135"
+
+            }
+          ],
+          1
+        ]
+      }
+    }
+  ]
+}

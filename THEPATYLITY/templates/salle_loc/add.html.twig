@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+{% form_theme SalleType 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Ajouter un bien e location
+
+{% endblock %}
+
+{% block body %}
+
+#}
+
+	<div class="container-fluid mt-8">
+		<div class="jumbotron" style="margin-top: 40px;">
+			<h1 class="display-4" style="text-align: center;">Ajouter une salle </h1>
+		</div>
+
+
+		{{ form_start(SalleType ) }}
+
+		<div class="row" style="max-width: 80vw;margin-left: 150px">
+			<div class="col-md-3">
+				{{ form_row( SalleType.SalleName, {'attr': {'placeholder' :" Name of your place"}})}}
+			</div>
+			<div class="col-md-3">
+				{{ form_row(SalleType.capaciter, {'attr': {'placeholder' :"Max capacity of perssonnes"}}) }}
+			</div>
+			<div class="col-md-3">
+				{{ form_row( SalleType.type, {'attr': {'placeholder' :" Select Type Of Event"}})}}
+			</div>
+			<div class="col-md-3">
+				{{ form_row(SalleType.prix, {'attr': {'placeholder' :"Price per day"}}) }}
+			</div>
+
+		</div>
+
+
+
+
+
+		<div class="row" style="max-width: 80vw;margin-left: 150px">
+			<div class="col-md-4">
+				{{ form_row(SalleType.disponible, {'attr': {'class': 'form-control'}}) }}
+			</div>
+
+			<div class="col-md-4">
+				{{ form_row(SalleType.capaciter, {'attr': {'placeholder' :"Name of your evnet"}}) }}
+			</div>
+		</div>
+			<div class="row" style="max-width: 80vw;margin-left: 150px">
+				<div class="col-md-4">
+					{{ form_row(SalleType.imageFile, {'attr': {'placeholder' :"affiche image of your evnt"}}) }}
+				</div>
+
+			</div>
+
+		<div class="row" style="max-width: 80vw;margin-left: 150px">
+			<div class="col-md-6">
+				{{ form_row(SalleType.images, {'attr': {'placeholder' :"images of your evnt"}}) }}
+			</div>
+
+		</div>
+
+
+		<div class="row" style="max-width: 80vw;margin-left: 150px">
+			<div class="col-md-12">
+				{{ form_row(SalleType.description, {'attr': {'placeholder' :" Description"}}) }}
+			</div>
+		</div>
+
+
+		<div class="row" style="max-width: 80vw;margin-left: 150px">
+			<div class="col-md-3">
+				{{ form_row(SalleType.zipCode, {'attr': {'placeholder' :"Zip code"}}) }}
+			</div>
+			<div class="col-md-3">
+				{{ form_row(SalleType.city, {'attr': {'placeholder' :" City"}})}}
+			</div>
+			<div class="col-md-3">
+				{{ form_row(SalleType.region, {'attr': {'placeholder' :"Area"}}) }}
+			</div>
+			<div class="col-md-3">
+				{{ form_row( SalleType.coutry, {'attr': {'placeholder' :" Select a coutry"}})}}
+			</div>
+
+		</div>
+		<div class="row" style="max-width: 80vw;margin-left: 150px">
+			<div class="col-md-12">
+				{{ form_row(SalleType.adress, {'attr': {'placeholder' :" adresse"}}) }}
+			</div>
+		</div>
+
+
+
+
+
+		<button  style=" width:190px;margin-left: 550px;margin-top: 50px;margin-bottom: 50px" class="btn btn-success" type="submit">
+			valider
+		</button>
+
+		{{ form_end(SalleType) }}
+
+	</div>
+	<section>
+{#		<div id="map" style="height: 150px ; width: 360px;margin-left: 670px;margin-top: 400px;  "></div>#}
+
+
+
+
+{#		<div id="aaap" class="mt-4" style="margin-left: 50px;width: 800px;margin-bottom: 50px;margin-top: 100px">#}
+	</section>
+
+
+
+
+{% endblock %}
+

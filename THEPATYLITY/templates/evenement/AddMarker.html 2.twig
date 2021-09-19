@@ -1,0 +1,27 @@
+{#
+{% extends 'base.html.twig' %}
+{% form_theme formMapmarker 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Edition dun evenement!{% endblock %}
+
+{% block body %}
+    <div class="container" style="margin-top: 20px;" col-md4>
+        <div class="contenue" style="margin-top: 80px;" >
+            <h1>Add a   marker to the map </h1>
+            <br>
+
+
+
+
+            <div class="mt-4" style="margin-left: 50px;width: 800px;margin-bottom: 50px;">
+
+                {{ form_start(formMapmarker) }}
+                {{ form_widget(formMapmarker) }}
+                <button class="btn btn-primary" type="submit">Add marker</button>
+                {{ form_end(formMapmarker) }}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}#}

@@ -1,0 +1,290 @@
+{% extends 'base.html.twig' %}
+{% form_theme formUserType 'bootstrap_4_layout.html.twig' %}
+{#{% form_theme formResset 'bootstrap_4_layout.html.twig' %}#}
+{% block title %}Edit profile{% endblock %}
+
+
+
+{% block body %}
+    <!-- MAIN CONTENT -->
+    <div id="content-block">
+        <div class="container be-detail-container">
+            <div class="row">
+                <div class="col-xs-12 col-md-3 left-feild">
+                    <div class="be-vidget back-block">
+                        <a class="btn full color-1 size-1 hover-1" href="{{ path('author.index') }}"><i class="fa fa-chevron-left"></i>back to profile</a>
+                    </div>
+                    <div class="be-vidget hidden-xs hidden-sm" id="scrollspy">
+                        <h3 class="letf-menu-article">
+                            Choose Category
+                        </h3>
+                        <div class="creative_filds_block">
+                            <ul class="ul nav">
+                                <li><a href="blog-detail-2.htmlbasic-information">Basic Information</a></li>
+                                <li><a href="{{path('author.ressetpassword',{'id':app.user.id})}}">Edit Password</a></li>
+                                <li><a href="blog-detail-2.htmlon-the-web">On The Web</a></li>
+                                <li><a href="blog-detail-2.htmlabout-me">About Me</a></li>
+                                <li><a href="blog-detail-2.htmlweb-references">Web References</a></li>
+                            </ul>
+                        </div>
+                        <a class="btn full color-1 size-1 hover-1 add_section"><i class="fa fa-plus"></i>add sections</a>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-md-9 _editor-content_">
+                    <div class="affix-block" id="basic-information">
+                        <div class="be-large-post">
+                            <div class="info-block style-2">
+                                <div class="be-large-post-align"><h3 class="info-block-label">Basic Information</h3></div>
+                            </div>{{ form_start(formUserType) }}
+                            <div class="be-large-post-align">
+                                <div class="be-change-ava">
+                                    <a class="be-ava-user style-2" href="blog-detail-2.html">
+                                        <img src="{{ asset('image/'~app.user.image) }}" alt="">
+                                    </a>
+                                    {{ form_row(formUserType.image) }}
+
+                                </div>
+                            </div>
+
+                            <div class="be-large-post-align">
+                                <div class="row">
+                                    <div class="input-col col-xs-12 col-sm-6">
+                                        <div class="form-group fg_icon focus-2">
+                                            <div class="form-label"></div>
+                                            {{ form_row(formUserType.user) }}
+                                        </div>
+                                    </div>
+                                    <div class="input-col col-xs-12 col-sm-6">
+                                        <div class="form-group focus-2">
+                                            <div class="form-label"></div>
+                                            {{ form_row(formUserType.email) }}
+
+                                        </div>
+                                    </div>
+                                    <div class="input-col col-xs-12">
+                                        <div class="form-group focus-2">
+                                            <div class="form-label"></div>
+                                            {{ form_row(formUserType.contry) }}
+                                        </div>
+                                    </div>
+                                    <div class="input-col col-xs-12 col-sm-6">
+                                        <div class="form-group focus-2">
+                                            <div class="form-label"></div>
+                                            {{ form_row(formUserType.city) }}
+                                        </div>
+                                    </div>
+                                    <div class="input-col col-xs-12">
+                                        <div class="form-group focus-2">
+                                            <div class="form-label"></div>
+                                            {{ form_row(formUserType.zipCiode) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="input-col col-xs-12 col-sm-6">
+                                        <div class="form-group focus-2">
+                                            <div class="form-label"></div>
+                                            {{ form_row(formUserType.category) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="input-col col-xs-12">
+                                        <div class="form-group focus-2">
+                                            <div class="form-label"></div>
+                                            {{ form_row(formUserType.accompte) }}
+                                        </div>
+                                    </div>
+                                    <div class="input-col col-xs-12" style="display: none;">
+                                        <div class="form-group focus-2">
+                                            <div class="form-label"></div>{#
+                                            {{ form_row(formUserType.password) }}#}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-col col-xs-12" style="display: none;">
+                                    <div class="form-group focus-2">
+                                        <div class="form-label"></div>
+                                        {# {{ form_row(formUserType.plainPassword) }}#}
+                                    </div>
+                                </div>
+                                {{ form_widget(formUserType) }}
+
+                                <div class="input-col col-xs-12" style="display: none;">
+                                    <div class="form-group focus-2">
+                                        <div class="form-label"></div>
+                                        {#  {{ form_row(formUserType.roles) }}#}
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            {{ form_end(formUserType) }}
+
+
+
+                            {{ form_start(formUserType) }}
+                            {#{{ form_row(registrationForm.email) }}
+                            {{ form_row(registrationForm.password) }}
+    #}
+                            {{ form_widget(formUserType) }}
+                            {#<button class="btn btn-success">inscription</button>#}
+
+                            {{ form_end(formUserType) }}
+
+                        </div>
+                    </div>
+                    {# <div class="affix-block" id="edit-password">
+                         <div class="be-large-post">
+                             <div class="info-block style-2">
+                                 <div class="be-large-post-align"><h3 class="info-block-label">Password</h3></div>
+                             </div>
+                             <div class="be-large-post-align">
+                                 <div class="row">
+                                     #}{#{{ form_start(formRessetPasswordType) }}#}{#
+                                     <div class="input-col col-xs-12 col-sm-4">
+                                         <div class="form-group focus-2">
+                                             <div class="form-label"> Password</div>
+                                             #}{# <input class="form-input" type="password" placeholder="">#}{#
+                                           {{ form_row(formRessetPasswordType.oldPassword) }}
+                                         </div>
+                                     </div>
+                                     <div class="input-col col-xs-12 col-sm-4">
+                                         <div class="form-group focus-2">
+                                             <div class="form-label">New Password</div>
+                                             <input class="form-input" type="password" placeholder="">
+                                              {{ form_row(formRessetPasswordType.plainPassword) }}
+                                         </div>
+                                     </div>
+                                     <div class="input-col col-xs-12 col-sm-4">
+                                         <div class="form-group focus-2">
+                                             <div class="form-label">Repeat Password</div>
+                                             <input class="form-input" type="password" placeholder="">
+                                             {{ form_row(formRessetPasswordType.plainPassword) }}
+                                         </div>
+                                     </div>
+                                     <div class="col-xs-12">
+                                         <a class="btn color-1 size-2 hover-1 btn-right" type="Submit">change password</a>
+                                     </div>
+                                    {{ form_end(formRessetPasswordType) }}
+                                 </div>
+                             </div>
+                         </div>
+
+                     </div>#}
+                    <div class="affix-block" id="on-the-web">
+                        <div class="be-large-post">
+                            <div class="info-block style-2">
+                                <div class="be-large-post-align"><h3 class="info-block-label">On The Web</h3></div>
+                            </div>
+                            <div class="be-large-post-align">
+                                <div class="social-input form-group focus-2">
+                                    <div class="s_icon">
+                                        <div class="social-bars"><i class="fa fa-bars"></i></div>
+                                        <div class="social-btn color-1" href="blog-detail-2.html"><i class="fa fa-facebook"></i></div>
+                                    </div>
+                                    <div class="s_input">
+                                        <input class="form-input" type="text" value="http:// facebook.com/taylor">
+                                    </div>
+                                </div>
+                                <div class="social-input form-group focus-2">
+                                    <div class="s_icon">
+                                        <div class="social-bars"><i class="fa fa-bars"></i></div>
+                                        <div class="social-btn color-2" href="blog-detail-2.html"><i class="fa fa-twitter"></i></div>
+                                    </div>
+                                    <div class="s_input">
+                                        <input class="form-input" type="text" value="http:// twitter.com/taylor">
+                                    </div>
+                                </div>
+                                <div class="social-input form-group focus-2">
+                                    <div class="s_icon">
+                                        <div class="social-bars"><i class="fa fa-bars"></i></div>
+                                        <div class="social-btn color-3" href="blog-detail-2.html"><i class="fa fa-google-plus"></i></div>
+                                    </div>
+                                    <div class="s_input">
+                                        <input class="form-input" type="text" value="http:// googleplus.com/taylor">
+                                    </div>
+                                </div>
+                                <div class="social-input form-group focus-2">
+                                    <div class="s_icon">
+                                        <div class="social-bars"><i class="fa fa-bars"></i></div>
+                                        <div class="social-btn color-4" href="blog-detail-2.html"><i class="fa fa-pinterest-p"></i></div>
+                                    </div>
+                                    <div class="s_input">
+                                        <input class="form-input" type="text" value="http:// pinterest.com/taylor">
+                                    </div>
+                                </div>
+                                <div class="social-input form-group focus-2">
+                                    <div class="s_icon">
+                                        <div class="social-bars"><i class="fa fa-bars"></i></div>
+                                        <div class="social-btn color-5" href="blog-detail-2.html"><i class="fa fa-instagram"></i></div>
+                                    </div>
+                                    <div class="s_input">
+                                        <input class="form-input" type="text" value="http:// instagram.com/taylor">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="affix-block" id="about-me">
+                        <div class="be-large-post">
+                            <div class="info-block style-2">
+                                <div class="be-large-post-align"><h3 class="info-block-label">About Me</h3></div>
+                            </div>
+                            <div class="be-large-post-align">
+                                <div class="row">
+                                    <div class="input-col col-xs-12">
+                                        <div class="form-group focus-2">
+                                            <div class="form-label">Section Title</div>
+                                            <input class="form-input" type="text" placeholder="About Me">
+                                        </div>
+                                    </div>
+                                    <div class="input-col col-xs-12">
+                                        <div class="form-group focus-2">
+                                            <div class="form-label">Description</div>
+                                            <textarea class="form-input" required="" placeholder="Something about you"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="affix-block" id="web-references">
+                        <div class="be-large-post">
+                            <div class="info-block style-2">
+                                <div class="be-large-post-align"><h3 class="info-block-label">Web References</h3></div>
+                            </div>
+                            <div class="be-large-post-align">
+                                <div class="row">
+                                    <div class="input-col col-xs-12 col-sm-5">
+                                        <div class="form-group focus-2">
+                                            <div class="form-label">Link Title</div>
+                                            <input class="form-input" type="text" placeholder="Enter title">
+                                        </div>
+                                    </div>
+                                    <div class="input-col col-xs-12 col-sm-5">
+                                        <div class="form-group focus-2">
+                                            <div class="form-label">Link descriprion</div>
+                                            <input class="form-input" type="text" placeholder="Enter descriprion">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-2">
+                                        <a href="blog-detail-2.html" class="btn full btn-input color-1 size-4 hover-1">add</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn full color-1 size-1 hover-1 add_section"><i class="fa fa-plus"></i>add sections</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

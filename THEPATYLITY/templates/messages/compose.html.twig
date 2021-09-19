@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}THE PARTYLIT
+{% endblock %}
+
+{% block body %}
+
+
+	<!-- MAIN CONTENT -->
+	<div id="content-block">
+		<div class="container be-detail-container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-5 left-feild">
+					<a href="{{ path('author.index') }}" class="btn color-4 size-1 hover-7">
+						<i class="fa fa-chevron-left"></i>
+						back to profile</a>
+					<a href="{{ path("messages.index") }}" class="btn btn-right color-1 size-1 hover-1">
+						<i class="fa fa-envelope-o"></i>
+						all messages</a>
+                        
+					
+                    <h1 style='margin-top:10px;marign-left:5px;'>Live chat</h1>
+
+                <i id="videoCallButton" class="fas fa-video" style=" margin-left:400px;color:grey; margin-top-10px;"></i>
+                <i id="endCallButton" class="fas fa-video-slash"></i>
+
+
+                <div class="container-fluid1 ui-widget-content" id="draggable">
+
+
+        
+                <div id="resizable  class=" col-sm-12 col-lg-3 ui-widget-content" style=" position:relative; margin-top:-5px; right:-30px; height:400px;with:400px;overflow:hiden;box-sizing:border-box;">
+
+
+
+                    <video id="remoteVideo" autoplay ></video>
+
+                <video id="localVideo" autoplay muted id="resizable" "style=" position:relative;top:-10px;margin-bottom:50px;   "></video>
+
+
+                    {# <input id="endCallButton" type="button" disabled value="End Call"/> #}
+
+            </div>
+    </div>
+
+
+
+        <di>
+
+                        <hr>
+						<ul id="chat-list"></ul>
+                        <br>
+                        <br>
+						<hr>
+						<textarea style='width:470px;' id="form-message" placeholder="Your public message here"></textarea>
+						<input type="button" id="form-submit" value="Send message"/>
+
+						
+
+					
+				</div>
+				<div class="col-xs-12 col-sm-7">
+					<div class="be-large-post">
+						<div class="info-block style-2">
+							<div class="be-large-post-align">
+								<h3 class="info-block-label">New Message</h3>
+							</div>
+						</div>
+						<div class="be-large-post-align">
+							<form>
+								<div class="form-group">
+									<div class="form-label">To</div>
+									<input class="form-input" type="text" value="Enter user name">
+								</div>
+								<div class="form-group">
+									<div class="form-label">Your Message</div>
+									<textarea class="form-input" required="" placeholder="Reply to Louise Paquet"></textarea>
+								</div>
+                             {#    <button id="form-message" class="btn btn-right color-4 size-2 hover-7">cancel</button> #}
+
+								<button class="btn btn-right color-1 size-2 hover-1">send</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+            </div>
+
+
+		</div>
+	</div>
+
+{% endblock %}

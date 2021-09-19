@@ -1,0 +1,96 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}liste {% endblock %}
+
+{% block body %}
+
+    <div class="container" style="margin-left: 150px;">
+        <div class="contenue" style="margin-left: 200px;">
+            <div class="row" id="main" >
+                <div class="col-sm-12 col-md-12 well" id="content" style="margin-left: 150px;">
+                    <h1 style="margin-top: 50px;">Liste des utilisateurs</h1>
+                </div>
+            </div>
+
+
+
+
+            <div><a href="{{ path("admin.userAdd") }}" class="btn btn-success">ajouter un user</a></div>
+
+            <br>
+            <div class="example raper">
+
+
+
+
+
+
+
+                <table class="table table-striped">
+
+                    <tr>
+                        <th>id</th>
+                        <th>Nom</th>
+                        <th>image</th>
+                        <th>email</th>
+
+                        <th>contry</th>
+                        <th>city</th>
+                        <th>zip code</th>
+                        <th>compte</th>
+                        <th>category</th>
+                        <th>action</th>
+                        <th>action</th>
+                    </tr>
+
+
+                    {%  for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.user }}</td>
+                            <td><img src="{{ asset('image/'~user.image) }}" height="50" width="50"></td>
+                            <td>{{ user.email }}</td>
+
+
+                            <td>{{ user.contry }}</td>
+                            <td>{{ user.city }}</td>
+                            <td>{{ user.zipCiode }}</td>
+
+                            <td>{{ user.accompte }}</td>
+                            <td>{{ user.category }}</td>
+
+
+
+
+                            <td>
+                                <a href="{#{{path("admin.update",{'id':user.id})}}#}" ><button class="btn btn-primary" >metre a jour</button></a>
+                            </td>
+
+                            <td><a href="{#{{path("admin.user.delete",{'id':user.id})}}#}" ><button class="btn btn-danger" type="submit">suprimer</button></a></td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </table>
+
+                <div  style="margin-left: 350px;margin-top: 70px;">
+                    <div class="row mt-30">
+                        <div class="col">
+
+                            {{ knp_pagination_render( users ) }}
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+{% form_theme formEvenementType 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Edition dun evenement!{% endblock %}
+
+{% block body %}
+
+
+
+
+
+    <div class="container-fluid mt-8">
+        <div class="jumbotron" style="margin-top: 40px;">
+            <h1 class="display-4" style="text-align: center;">Ajouter un Evenement </h1>
+        </div>
+
+
+    {{ form_start(formEvenementType ) }}
+
+        <div class="row" style="max-width: 80vw;margin-left: 150px">
+            <div class="col-md-3">
+                {{ form_row(formEvenementType.name, {'attr': {'placeholder' :"Name of your evnet"}}) }}
+            </div>
+            <div class="col-md-3">
+                {{ form_row( formEvenementType.type, {'attr': {'placeholder' :" Select Type Of Event"}})}}
+            </div>
+            <div class="col-md-3">
+                {{ form_row(formEvenementType.typeDeSale, {'attr': {'placeholder' :"Type Of Place"}}) }}
+            </div>
+
+            <div class="col-md-3">
+                {{ form_row( formEvenementType.capaciterMaxPersonne, {'attr': {'placeholder' :" max people expected"}})}}
+            </div>
+        </div>
+        <div class="row" style="max-width: 80vw;margin-left: 150px">
+            <div class="col-md-6">
+                {{ form_row(formEvenementType.date, {'attr': {'placeholder' :""}})  }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(formEvenementType.public, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+        </div>
+
+
+
+        <div class="row" style="max-width: 80vw;margin-left: 150px">
+            <div class="col-md-6">
+                {{ form_row(formEvenementType.active, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="col-md-6">
+                {{ form_row(formEvenementType.image, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+
+
+        <div class="row" style="max-width: 80vw;margin-left: 150px">
+            <div class="col-md-3">
+                {{ form_row(formEvenementType.free, {'attr': {'placeholder' :"Free?"}}) }}
+            </div>
+            <div class="col-md-3">
+                {{ form_row( formEvenementType.city, {'attr': {'placeholder' :" City"}})}}
+            </div>
+            <div class="col-md-3">
+                {{ form_row(formEvenementType.region, {'attr': {'placeholder' :"Area"}}) }}
+            </div>
+            <div class="col-md-3">
+                {{ form_row( formEvenementType.contry, {'attr': {'placeholder' :" Select a coutry"}})}}
+            </div>
+
+        </div>
+        <div class="row" style="max-width: 80vw;margin-left: 150px">
+            <div class="col-md-12">
+                {{ form_row(formEvenementType.address, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+
+
+
+
+        <button  style=" width:190px;margin-left: 550px;margin-top: 50px;margin-bottom: 50px" class="btn btn-success" type="submit">
+            valider
+        </button>
+
+        {{ form_end(formEvenementType) }}
+
+    </div>
+    <section >
+       {# <div id="map" style="height: 150px ; width: 360px;margin-left: 170px; margin-bottom: 50px; position: absolute "></div>
+#}
+
+
+
+        {#<div id="aaap" class="mt-4" style="margin-left: 50px;width: 800px;margin-bottom: 50px;">#}
+    </section>
+
+
+
+
+{% endblock %}

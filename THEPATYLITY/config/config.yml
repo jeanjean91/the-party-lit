@@ -1,0 +1,17 @@
+# app/config/config.yml
+parameters:
+    locale: fr # Mettez « fr » ici si ce n'est pas déjà le cas
+
+framework:
+    # On définit la langue par défaut pour le service de traduction
+    # Décommenter la ligne, et vérifier qu'elle est bien ainsi
+    translator:      { fallbacks: ["%locale%"] }
+
+# …
+
+    # Vérifier cette ligne aussi, pour la langue par défaut de l'utilisateur
+    # C'est celle qui sera utilisée si l'internaute ne demande rien
+    default_locale: %locale%
+twig:
+    globals:
+        Cat: "%Cat",id: "%id"

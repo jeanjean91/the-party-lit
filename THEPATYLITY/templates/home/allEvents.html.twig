@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}THE PARTYLIT{% endblock %}
+
+{% block body %}
+    <!-- MAIN CONTENT -->
+    <div id="content-block">
+        <div class="container-fluid custom-container be-detail-container">
+            <div class="isotope-grid row">
+                {%  for evenement in evenement %}
+                    <div class="isotope-item col-ml-12 col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
+                        <div class="be-post style-5">
+                            <a href="{{ path("evenement.statique",{'id':evenement.id}) }}"class="be-img-block">
+                                <img src="{{ asset('image/'~evenement.image) }}" alt="omg" style="height: 300px;">
+                            </a>
+                            <div class="be-rowline">
+                                <img class="rowline-img" src="" alt="">
+                                <a href="b{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-title">{{ evenement.name }}</a>
+                                {# <div class="rowline-text">Louis Paquet <span class="rowline-icon"><i class="fa fa-thumbs-o-up"></i></span></div>#}
+                            </div>
+
+
+                            <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-title"><br><span><i class="fas fa-calendar-alt"></i> Date: </span>{{ evenement.date|date('d/m/Y')}}</a>
+
+                            <span>
+									<a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><span><i class="fas fa-globe-americas"></i>  Contry: </span>{{ evenement.contry }}</a>,
+									<a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-city"></i> City: </span>{{ evenement.city }}</a>,
+
+                                    <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-map-marker-alt"></i> Adress: </span>{{ evenement.address }}</a>,
+                                    <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-user-friends"></i> Max people: </span> {{ evenement.capaciterMaxPersonne }}</a>
+									<a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-home"></i> Where: </span> {{ evenement.typeDeSale}}</a>
+                                    <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-award"></i> Type of event: </span>{{ evenement.type}}</a>
+                                   {# <a href="blog-detail-2.html" class="be-post-tag">{{ evenement.public }}</a>,
+									<a href="blog-detail-2.html" class="be-post-tag">{{ evenement.active}}</a>,
+									<a href="blog-detail-2.html" class="be-post-tag">{{ evenement.type}}</a>#}
+								</span>
+                            <div class="author-post">
+                                <img src="{{ asset('image/'~evenement.user.image) }}" alt="" class="ava-author" style="height: 45px; width: 50px;">
+                                <span>by <a href="{{ path("author.profil",{'id':evenement.user.id}) }}"> {{ evenement.user.user }}</a></span>
+                            </div>
+                            <div class="info-block">
+                                <span><i class="fa fa-thumbs-o-up"></i> 360</span>
+                                <span><i class="fa fa-eye"></i> 789</span>
+                                <span><i class="fa fa-comment-o"></i> 20</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+
+            </div>
+            <div class="navigation" style="margin-left: 600px;">
+
+
+
+                <div class="pagination">
+
+
+                    {{ knp_pagination_render( evenement) }}
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- THE FOOTER -->
+{% endblock %}

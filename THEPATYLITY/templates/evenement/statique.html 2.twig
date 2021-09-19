@@ -1,0 +1,539 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}THE PARTYLIT!
+{% endblock %}
+
+{% block body %}
+
+	<!-- MAIN CONTENT -->
+	<div class="container">
+		<div id="content-block">
+			<div class="container be-detail-container">
+				<div class="row">
+					<div class="col-xs-12 col-lg-10 col-lg-offset-1">
+						<div class="be-large-post">
+							<div class="info-block style-2">
+								<div class="be-large-post-align">
+									<h3 class="info-block-label">Statistics</h3>
+								</div>
+							</div>
+							<div class="be-large-post-align">
+								<div class="tab-wrapper style-2 color-2"style="background-color:#ffff;">
+									<div class="tab-nav-wrapper">
+										<div class="nav-tab  clearfix">
+											<div class="nav-tab-item active">
+												<span>Projects Views</span>
+											</div>
+											<div class="nav-tab-item ">
+												<span>Appreciations</span>
+											</div>
+											<div class="nav-tab-item ">
+												<span>Projects Comments</span>
+											</div>
+											<div class="nav-tab-item ">
+												<span>Projects Views</span>
+											</div>
+											<div class="stat-sort be-drop-down">
+												<span class="be-dropdown-content">
+													all galleries
+												</span>
+												<ul class="drop-down-list">
+													<li>
+														<a>Gallery 1</a>
+													</li>
+													<li>
+														<a>Gallery 2</a>
+													</li>
+													<li>
+														<a>Gallery 3</a>
+													</li>
+													<li>
+														<a>Gallery 4</a>
+													</li>
+													<li>
+														<a>Gallery 5</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+
+									</div>
+									<div class="tabs-content clearfix">
+										<div class="tab-info active">
+											<img class="img-responsive" src="{{ asset('image/'~evenement.image) }}" alt="" style="width: 700px;height: 500px">
+										</div>
+										<div class="tab-info">
+											<img class="img-responsive" src="{{ evenement.image }}" alt="">
+										</div>
+										<div class="tab-info">
+											<img class="img-responsive" src="{{ evenement.image }}" alt="">
+										</div>
+										<div class="tab-info">
+											<img class="img-responsive" src="{{ evenement.image }}" alt="">
+										</div>
+									</div>
+									<a href="" class="be-post-title"></a>
+									<a href="#" class="be-post-title">{{ evenement.name }}</a>
+									<a href="#" class="be-post-title"><br><span>
+											<i class="fas fa-calendar-alt"></i>
+											Date:
+										</span>
+										{{ evenement.date|date('d/m/Y')}}</a>
+									<span>
+										<a href="#" class="be-post-tag" style="font-size: large;">
+											<span>
+												<i class="fas fa-globe-americas"></i>
+												Contry:
+											</span>
+											{{ evenement.contry }}</a>,
+										<a href="#" class="be-post-tag" style="font-size: large;"><br><span>
+												<i class="fas fa-city"></i>
+												City:
+											</span>
+											{{ evenement.city }}</a>,
+
+										<a href="#" class="be-post-tag" style="font-size: large;"><br><span>
+												<i class="fas fa-map-marker-alt"></i>
+												Adress:
+											</span>
+											{{ evenement.address }}</a>,
+										<a href="#" class="be-post-tag" style="font-size: large;"><br><span>
+												<i class="fas fa-user-friends"></i>
+												Max people:
+											</span>
+											{{ evenement.capaciterMaxPersonne }}</a>
+										<a href="#" class="be-post-tag" style="font-size: large;"><br><span>
+												<i class="fas fa-home"></i>
+												Where:
+											</span>
+											{{ evenement.typeDeSale}}</a>
+										<a href="#" class="be-post-tag" style="font-size: large;"><br><span>
+												<i class="fas fa-award"></i>
+												Type of event:
+											</span>
+											{{ evenement.type}}</a>
+										{#<a href="blog-detail-2.html" class="be-post-tag">{{ evenement.public }}</a>,
+																			<a href="blog-detail-2.html" class="be-post-tag">{{ evenement.active}}</a>,
+																			<a href="blog-detail-2.html" class="be-post-tag">{{ evenement.type}}</a>#}
+									</span>
+									<div class="author-post" style=" margin-left: -20px;margin-top: 20px;">
+										<img src="{{ asset('image/'~evenement.user.image) }}" alt="" class="ava-author" style="height: 50px;width: 50px;">
+										<span style="font-size: large;">by
+											<a href="{{ path("author.profil",{'id':evenement.user.id}) }}">{{ evenement.user.user }}</a>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="statistic-block">
+							<div class="tab-wrapper style-3 color-2">
+								<div class="tab-nav-wrapper">
+									<div class="nav-tab  clearfix">
+										<div class="nav-tab-item active">
+											<span>Receives</span>
+										</div>
+										<div class="nav-tab-item ">
+											<span>Given</span>
+										</div>
+										<div class="stat-sort be-drop-down">
+											<span class="be-dropdown-content">
+												all time
+											</span>
+											<ul class="drop-down-list">
+												<li>
+													<a>1 day</a>
+												</li>
+												<li>
+													<a>1 week</a>
+												</li>
+												<li>
+													<a>1 month</a>
+												</li>
+												<li>
+													<a>6 month</a>
+												</li>
+												<li>
+													<a>1 year</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="tabs-content clearfix">
+									<div class="tab-info active">
+										<div class="stat-wrapper">
+											<div class="row no-padding">
+												<div class="stat-item col-xs-12 col-sm-3">
+													<div class="stat-entry">
+														<img src="img/stat_1.png" alt="">
+														<div class="stat-number">5300</div>
+														<div class="stat-text">event views</div>
+													</div>
+												</div>
+												<div class="stat-item col-xs-12 col-sm-3">
+													<div class="stat-entry">
+														<img src="img/stat_2.png" alt="">
+														<div class="stat-number">1023</div>
+														<div class="stat-text">event appreciations</div>
+													</div>
+												</div>
+												<div class="stat-item col-xs-12 col-sm-3">
+													<div class="stat-entry">
+														<img src="img/stat_3.png" alt="">
+														<div class="stat-number">79</div>
+														<div class="stat-text">event comments</div>
+													</div>
+												</div>
+												<div class="stat-item col-xs-12 col-sm-3">
+													<div class="stat-entry">
+														<img src="img/stat_4.png" alt="">
+														<div class="stat-number">278</div>
+														<div class="stat-text">profile views</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="tab-info">
+										<div class="stat-wrapper">
+											<div class="row no-padding">
+												<div class="stat-item col-xs-12 col-sm-3">
+													<div class="stat-entry">
+														<img src="img/stat_2.png" alt="">
+														<div class="stat-number">535</div>
+														<div class="stat-text">event appreciations</div>
+													</div>
+												</div>
+												<div class="stat-item col-xs-12 col-sm-3">
+													<div class="stat-entry">
+														<img src="img/stat_1.png" alt="">
+														<div class="stat-number">1200</div>
+														<div class="stat-text">event views</div>
+													</div>
+												</div>
+												<div class="stat-item col-xs-12 col-sm-3">
+													<div class="stat-entry">
+														<img src="img/stat_4.png" alt="">
+														<div class="stat-number">122</div>
+														<div class="stat-text">event views</div>
+													</div>
+												</div>
+												<div class="stat-item col-xs-12 col-sm-3">
+													<div class="stat-entry">
+														<img src="img/stat_3.png" alt="">
+														<div class="stat-number">46</div>
+														<div class="stat-text">event comments</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="be-large-post">
+							<div class="info-block style-2">
+								<div class="be-large-post-align">
+									<div class="info-block-right">in last
+										<span class="num-data">30</span>
+										days</div>
+									<h3 class="info-block-label">Portfolio Monthly Review</h3>
+								</div>
+							</div>
+							<div class="be-large-post-align">
+								<div class="table-responsive">
+									<table class="table table-sotring tablesorter">
+										<thead>
+											<tr>
+												<th class="col-xs-4">Events</th>
+												<th class="col-xs-1 text-center">
+													<img width="18px" src="img/stat_1.png" alt="">
+												</th>
+												<th class="col-xs-1 text-center">
+													<img width="18px" src="img/stat_2.png" alt="">
+												</th>
+												<th class="col-xs-1 text-center">
+													<img width="18px" src="img/stat_3.png" alt="">
+												</th>
+												<th class="col-xs-5">Appreciated By:</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="col-xs-4">
+													<div class="t_project clearfix">
+														<a href="blog-detail-2.html"><img class="t_project-img" src="img/t_project_1.jpg" alt=""></a>
+														<div class="t_project-desc">
+															<a class="t_project-title" href="blog-detail-2.html">Omni- onepage app template</a>
+															<div class="t_project-date">
+																<i class="fa fa-clock-o"></i>
+																May 27, 2015</div>
+														</div>
+													</div>
+												</td>
+												<td class="text-center">
+													<strong>41</strong>
+												</td>
+												<td class="text-center">
+													<strong>15</strong>
+												</td>
+												<td class="text-center">
+													<strong>30</strong>
+												</td>
+												<td>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_1.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_2.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_3.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_4.jpg" alt=""></a>
+												</td>
+											</tr>
+
+											<tr>
+												<td class="col-xs-4">
+													<div class="t_project clearfix">
+														<a href="blog-detail-2.html"><img class="t_project-img" src="img/t_project_2.jpg" alt=""></a>
+														<div class="t_project-desc">
+															<a class="t_project-title" href="blog-detail-2.html">Mochiice ne concept</a>
+															<div class="t_project-date">
+																<i class="fa fa-clock-o"></i>
+																May 27, 2015</div>
+														</div>
+													</div>
+												</td>
+												<td class="text-center">
+													<strong>39</strong>
+												</td>
+												<td class="text-center">
+													<strong>23</strong>
+												</td>
+												<td class="text-center">
+													<strong>102</strong>
+												</td>
+												<td>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_1.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_2.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_3.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_4.jpg" alt=""></a>
+												</td>
+											</tr>
+
+											<tr>
+												<td class="col-xs-4">
+													<div class="t_project clearfix">
+														<a href="blog-detail-2.html"><img class="t_project-img" src="img/t_project_3.jpg" alt=""></a>
+														<div class="t_project-desc">
+															<a class="t_project-title" href="blog-detail-2.html">Ex Machina Social</a>
+															<div class="t_project-date">
+																<i class="fa fa-clock-o"></i>
+																May 27, 2015</div>
+														</div>
+													</div>
+												</td>
+												<td class="text-center">
+													<strong>32</strong>
+												</td>
+												<td class="text-center">
+													<strong>78</strong>
+												</td>
+												<td class="text-center">
+													<strong>5</strong>
+												</td>
+												<td>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_1.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_2.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_3.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_4.jpg" alt=""></a>
+												</td>
+											</tr>
+
+											<tr>
+												<td class="col-xs-4">
+													<div class="t_project clearfix">
+														<a href="blog-detail-2.html"><img class="t_project-img" src="img/t_project_4.jpg" alt=""></a>
+														<div class="t_project-desc">
+															<a class="t_project-title" href="blog-detail-2.html">National Geographic - The End</a>
+															<div class="t_project-date">
+																<i class="fa fa-clock-o"></i>
+																May 27, 2015</div>
+														</div>
+													</div>
+												</td>
+												<td class="text-center">
+													<strong>11</strong>
+												</td>
+												<td class="text-center">
+													<strong>20</strong>
+												</td>
+												<td class="text-center">
+													<strong>46</strong>
+												</td>
+												<td>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_1.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_2.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_3.jpg" alt=""></a>
+													<a class="t_project_icon" href="blog-detail-2.html"><img src="img/project_4.jpg" alt=""></a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="be-large-post">
+							<div class="info-block style-2">
+								<div class="be-large-post-align">
+									<h3 class="info-block-label">Appreciators</h3>
+								</div>
+							</div>
+							<div class="be-large-post-align">
+								<div class="row">
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c11.jpg" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c8.jpg" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c12.jpg" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c6.jpg" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c13.jpg" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c3.png" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c2.png" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c7.jpg" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="be-large-post">
+							<div class="info-block style-2">
+								<div class="be-large-post-align">
+									<h3 class="info-block-label">Commentors</h3>
+								</div>
+							</div>
+							<div class="be-large-post-align">
+								<div class="row">
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c11.jpg" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c8.jpg" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c12.jpg" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c6.jpg" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c13.jpg" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-3">
+										<div class="appreciator clearfix">
+											<a href="blog-detail-2.html"><img class="appreciator-img" src="img/c3.png" alt=""></a>
+											<div class="appreciator-desc">
+												<div class="appreciator-title">Daniel Ng</div>
+												<div class="appreciator-text">3 Appreciations</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>{% endblock %}
+

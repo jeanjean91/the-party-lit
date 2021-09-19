@@ -1,0 +1,228 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}THE PARTYLIT{% endblock %}
+
+{% block body %}
+
+     <div id="content-block" >
+          <div class="head-bg" >
+               <div id="mapx" style="position: relative; overflow: hidden; z-index: 1;">
+
+               </div>
+          </div>
+          <div class="container-fluid custom-container" id="recherche">
+
+               <div class="row"style="margin-right:50px;">
+                    {{ form_start(evenementFormSearchType) }}
+                    <div class="col-md-2 left-feild">
+
+
+                    </div>
+                    <div class="col-md-12 ">
+                         <div class="btn color-12 size-1 ">
+                              <div id="pays" class="btn color-3 size-1  "  >
+
+                                   {{ form_row(evenementFormSearchType.contry ) }}
+
+
+                              </div>
+
+                              <div id="ville"class="btn color-3 size-1" >
+
+
+                                   {{ form_row(evenementFormSearchType.city) }}
+
+                              </div>
+                              <div id="date" class="btn color-3 size-1 " >
+
+
+
+                                   {{ form_row(evenementFormSearchType.date) }}
+
+                              </div>
+                              <div id="type" class="btn color-3 size-1 " >
+
+                                   {{ form_row(evenementFormSearchType.type) }}
+                              </div>
+
+                              <a class="btn color-3 size-1 hover-6" id="localise" style="height:55px; display: inline-block;font-size: 12px;margin-left:-10px;margin-top:-2px;">
+                                   <i class="icon-worldwide"></i>
+                                   GEOLACATION</a>
+
+
+
+                              <button id="cherche">search</button>
+
+
+
+
+
+
+                         </div>
+
+                    </div>
+                    {{ form_end(evenementFormSearchType) }}
+
+               </div>
+          </div>
+          <div class="container-fluid custom-container">
+               <div class="row" >
+
+                    <div class="col-md-2 left-feild">
+                         <div class="be-vidget">
+                              <h3 class="letf-menu-article">
+                                   type of events
+                              </h3>
+                              <div class="creative_filds_block">
+                                   <div class="ul">
+                                        <a href="blog-detail-2.html">concert	</a>
+                                        <a href="blog-detail-2.html">house party			</a>
+                                        <a href="blog-detail-2.html">festival</a>
+                                        <a href="blog-detail-2.html">clubin		</a>
+                                        <a href="blog-detail-2.html">sport event		</a>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="be-vidget">
+                              <h3 class="letf-menu-article">
+                                   context
+                              </h3>
+                              <div class="tags_block clearfix">
+                                   <ul>
+                                        <li><a href="blog-detail-2.html">beatch</a></li>
+                                        <li><a href="blog-detail-2.html">park</a></li>
+                                        <li><a href="blog-detail-2.html">boat</a></li>
+                                        <li><a href="blog-detail-2.html">bus</a></li>
+                                        <li><a href="blog-detail-2.html">carnaval</a></li>
+                                        <li><a href="blog-detail-2.html">pool</a></li>
+                                        <li><a href="blog-detail-2.html">back yard</a></li>
+                                        <li><a href="blog-detail-2.html">full moone</a></li>
+                                        <li><a href="blog-detail-2.html">new years</a></li>
+                                        <li><a href="blog-detail-2.html">alloweene</a></li>
+                                   </ul>
+                              </div>
+                         </div>
+                         <div class="be-vidget">
+                              <h3 class="letf-menu-article">
+                                   Filter By
+                              </h3>
+                              <div class="filter-block">
+                                   <ul>
+                                        <li><a><i class="fa fa-graduation-cap"></i>dress code</a>
+                                             <div class="be-popup">
+                                                  <h3 class="letf-menu-article">
+                                                       Enter dress code
+                                                  </h3>
+                                                  <form action="./" class="input-search">
+                                                       <input type="text" required placeholder="Start typing to see list">
+                                                  </form>
+                                                  <i class="fa fa-times"></i>
+                                             </div>
+                                        </li>
+                                        <li><a><i class="fa fa-wrench"></i> public expected</a>
+                                             <div class="be-popup">
+                                                  <h3 class="letf-menu-article">
+                                                       enter a social class
+                                                  </h3>
+                                                  <form action="./" class="input-search">
+                                                       <input type="text" required placeholder="Start typing to see list">
+                                                  </form>
+                                                  <i class="fa fa-times"></i>
+                                             </div>
+                                        </li>
+                                        <li><a><i class="fa fa-paint-brush"></i>Color</a>
+                                             <div class="be-popup be-color-picker">
+                                                  <h3 class="letf-menu-article">
+                                                       Choose color
+                                                  </h3>
+                                                  <div class="for-colors">
+
+                                                  </div>
+                                                  <i class="fa fa-times"></i>
+
+                                             </div>
+                                        </li>
+                                        <li><a><i class="fa fa-camera-retro"></i>Visit Gallery</a>
+                                             <div class="be-popup">
+                                                  <h3 class="letf-menu-article">
+                                                       Galerry
+                                                  </h3>
+                                                  <form action="./" class="input-search">
+                                                       <input type="text" required placeholder="Start typing to see list">
+                                                  </form>
+                                                  <i class="fa fa-times"></i>
+                                             </div>
+                                        </li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="col-md-10">
+
+                         <div class="row _post-container_">
+                              {%  for evenement in evenement %}
+
+
+
+                                   <div class="custom-column-5">
+                                        <div class="be-post">
+                                             <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-img-block">
+                                                  <img src="{{ asset('image/'~evenement.image) }}" alt="omg" style="height: 250px;">
+                                             </a>
+                                             <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-title">{{ evenement.name }}</a>
+                                             <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-title"><br><span><i class="fas fa-calendar-alt"></i> Date: </span>{{ evenement.date|date('d/m/Y')}}</a>
+
+                                             <span>
+									<a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><span><i class="fas fa-globe-americas"></i>  Contry: </span>{{ evenement.contry }}</a>,
+									<a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-city"></i> City: </span>{{ evenement.city }}</a>,
+
+                                    <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-map-marker-alt"></i> Adress: </span>{{ evenement.address }}</a>,
+                                    <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-user-friends"></i> Max people: </span> {{ evenement.capaciterMaxPersonne }}</a>
+									<a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-home"></i> Where: </span> {{ evenement.typeDeSale}}</a>
+                                    <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-award"></i> Type of event: </span>{{ evenement.type}}</a>
+                                    {# <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-award"></i> Type of event: </span>{{ evenement.lat}}</a>
+                                     <a href="{{ path("evenement.statique",{'id':evenement.id}) }}" class="be-post-tag"><br><span><i class="fas fa-award"></i> Type of event: </span>{{ evenement.lng}}</a>#}
+                                                  {# <a href="blog-detail-2.html" class="be-post-tag">{{ evenement.public }}</a>,
+                                                   <a href="blog-detail-2.html" class="be-post-tag">{{ evenement.active}}</a>,
+                                                   #}
+								</span>
+
+
+
+                                             <div class="author-post">
+                                                  <img src="{{ asset('image/'~evenement.user.image) }}" alt="" class="ava-author"style="height: 45px; width: 50px;border-radius: 105px;">
+
+                                                  <span>by <a href="{{ path("author.profil",{'id':evenement.user.id}) }}">{{ evenement.user.user }}</a></span>
+                                             </div>
+
+                                             <div class="info-block">
+                                                  <span><i class="fa fa-thumbs-o-up"></i> 360</span>
+                                                  <span><i class="fa fa-eye"></i> 789</span>
+                                                  <span><i class="fa fa-comment-o"></i> 20</span>
+                                             </div>
+
+                                        </div>
+                                   </div>
+                              {% endfor %}
+
+                         </div>
+
+                    </div>
+               </div>
+          </div>
+
+     </div >
+     <div class="navigation" style="margin-left: 600px;">
+
+
+
+          <div class="pagination">
+
+
+               {{ knp_pagination_render( evenement) }}
+
+
+
+          </div>
+     </div>
+{% endblock %}

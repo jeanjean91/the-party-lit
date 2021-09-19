@@ -1,0 +1,100 @@
+{% extends 'adminBase.html.twig' %}
+
+{% block title %}liste {% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="contenue"style="margin-left: 200px;">
+
+            <div class="row" id="main" style="margin-left: 200px;">
+                <div class="col-sm-12 col-md-12 well" id="content">
+                    <h1 style="margin-top: 50px;">Liste des evenements</h1>
+                </div>
+            </div>
+
+
+
+
+
+            <div><a href="" class="btn btn-success">ajouter un evenement</a></div>
+
+            <br>
+            <div class="example raper">
+
+
+
+
+
+
+
+                <table class="table table-striped">
+
+                    <tr>
+                        <th>id</th>
+                        <th>name</th>
+                        <th>image</th>
+                        <th>user_Name</th>
+                        <th>contry</th>
+                        <th>city</th>
+                        <th>date</th>
+                        <th>type</th>
+                        <th>lat</th>
+                        <th>lng</th>
+                        <th>action</th>
+                        <th>action</th>
+                    </tr>
+
+
+                    {%  for evenement in evenement %}
+                        <tr>
+                            <td>{{ evenement.id }}</td>
+                            <td>{{ evenement.name }}</td>
+
+                            <td><img src="{{ asset('image/'~evenement.image) }}" height="50" width="50"></td>
+
+
+
+
+                            <td>{{ evenement.user.user }}</td>
+
+                            <td>{{ evenement.contry }}</td>
+                            <td>{{ evenement.city }}</td>
+                            <td>{{  evenement.date|date('d/m/Y') }} </td>
+                            <td>{{ evenement.type}}</td>
+                            <td>{{ evenement.lat}}</td>
+                            <td>{{ evenement.lng}}</td>
+
+
+                            <td>
+                                <a href="{#{{path("produit.update",{'id':produit.id})}}#}" ><button class="btn btn-primary" >metre a jour</button></a>
+                            </td>
+
+                            <td> <a href="{#{{path("admin.produit.delete",{'id':produit.id})}}#}" ><button class="btn btn-danger" type="submit">suprimer</button></a></td>
+
+                        </tr>
+
+                    {% endfor %}
+
+                </table>
+
+                <div  style="margin-left: 350px;margin-top: 70px;">
+                    <div class="row mt-30">
+                        <div class="col">
+
+                            {{ knp_pagination_render( evenement) }}
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

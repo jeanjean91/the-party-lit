@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ALL SALLES{% endblock %}
+
+{% block body %}
+<!-- MAIN CONTENT -->
+
+
+
+<div id="content-block">
+	<div class="container-fluid custom-container be-detail-container">
+		<h1 style="text-align: center; margin-bottom: 20px;" >Places for rent</h1>
+		<div class="isotope-grid row">
+			{%  for location in location %}
+				<div class="isotope-item col-ml-12 col-xs-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
+					<div class="be-post style-5">
+						<a href="{{ path("salle_loc.single",{'id':location.id}) }}" class="be-img-block">
+							<img src="{{ asset('image/'~location.image) }} " alt="omg" style="height: 300px;">
+						</a>
+						<div class="be-rowline">
+
+							<a href="b{{ path("salle_loc.single",{'id':location.id}) }}" class="be-post-title">{# {{ evenement.name }} #}</a>
+							{# <div class="rowline-text">Louis Paquet <span class="rowline-icon"><i class="fa fa-thumbs-o-up"></i></span></div>#}
+						</div>
+
+
+						<a href="{{ path("salle_loc.single",{'id':location.id}) }}" class="be-post-title"><br><span>
+								<i class="fas fa-calendar-alt"></i>
+								Date:
+							</span>
+							{# {{ evenement.date|date('d/m/Y')}} #}</a>
+
+						<span>
+							<a href="{{ path("salle_loc.single",{'id':location.id}) }}" class="be-post-tag">
+								<span>
+									<i class="fas fa-globe-americas"></i>
+									Contry:
+								</span>
+								{{ location.coutry }}</a>,
+							<a href="{{ path("salle_loc.single",{'id':location.id}) }}" class="be-post-tag"><br><span>
+									<i class="fas fa-city"></i>
+									City:
+								</span>
+								{{ location.city }}</a>,
+
+							<a href="{{ path("salle_loc.single",{'id':location.id}) }}" class="be-post-tag"><br><span>
+									<i class="fas fa-map-marker-alt"></i>
+									Adress:
+								</span>
+								{{ location.adress }}</a>,
+							<a href="{{ path("salle_loc.single",{'id':location.id}) }}" class="be-post-tag"><br><span>
+									<i class="fas fa-user-friends"></i>
+									Max people:
+								</span>
+								{# {{ location.capaciterMaxPersonne }}</a> #}
+							<a href="{{ path("salle_loc.single",{'id':location.id}) }}" class="be-post-tag"><br><span>
+									<i class="fas fa-home"></i>
+									Where:
+								</span>
+								{{ location.type}}</a>
+							<a href="{{ path("salle_loc.single",{'id':location.id}) }}" class="be-post-tag"><br><span>
+									<i class="fas fa-award"></i>
+									Type of event:
+								</span>
+								{{ location.type}}</a>
+							{# <a href="blog-detail-2.html" class="be-post-tag">{{ evenement.public }}</a>,
+																<a href="blog-detail-2.html" class="be-post-tag">{{ evenement.active}}</a>,
+																<a href="blog-detail-2.html" class="be-post-tag">{{ evenement.type}}</a>#}
+						</span>
+						<div class="author-post">
+							<img src="{{ asset('image/'~location.user.image) }}" alt="" class="ava-author" style="height: 45px; width: 50px;">
+							<span>by
+								<a href="{{ path("author.profil",{'id':location.user.id}) }}">
+									{{ location.user.user }}</a>
+							</span>
+							<span><a href="{{ path("salle_loc.single",{'id':location.id}) }}" class="btn btn-primary">Detail</a></span>
+						</div>
+						{#<button><a href="{{ path('booking_new') }}"></a> </button>#}
+						<div class="info-block">
+							<span>
+								<i class="fa fa-thumbs-o-up"></i>
+								360</span>
+							<span>
+								<i class="fa fa-eye"></i>
+								789</span>
+							<span>
+								<i class="fa fa-comment-o"></i>
+								20</span>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+
+
+		</div>
+		<div class="navigation" style="margin-left: 600px;">
+
+
+			<div class="pagination">
+
+
+				{{ knp_pagination_render( location) }}
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
