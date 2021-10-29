@@ -1,455 +1,460 @@
 <!DOCTYPE html>
 <html class="no-js" lang="{{ app.request.locale }}">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        {% block title %}PARTYLIT
-        {% endblock %}
-    </title>
-    <style>
-        <style type="text/css">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>
+			{% block title %}PARTYLIT
+			{% endblock %}
+		</title>
+		<style>
+			<style type="text/css">
 
-                              .geocoder {
-                                  position: absolute;
-                                  z-index: 1;
-                                  width: 50%;
-                                  left: 50%;
-                                  margin-left: -25%;
-                                  top: 20px;
-                              }
-        .mapboxgl-ctrl-geocoder {
-            min-width: 100%;
-        }
-        #slider {
-            max-width: 1100px !important;
-            margin: 0;
-        }
-        .flexslider {
-            max-width: 1100px !important;
-            overflow: hidden;
-        }
-        .flexslider ul {
-            margin-left: 0;
-        }
-        .color-1 {
-            background-color: #aaa;
-        }
-        .color-2 {
-            background-color: #999;
-        }
-        .color-3 {
-            background-color: #ddd;
-        }
-        .color-4 {
-            background-color: #eee;
-        }
-        .marker {
-            background-image: url('https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png');
-            background-size: cover;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        .mapboxgl-popup {
-            max-width: 200px;
-        }
-        .mapboxgl-popup-content {
-            text-align: center;
-            font-family: 'Open Sans', sans-serif;
-        }
-    </style>
+				
+				.geocoder {
+					position: absolute;
+					z-index: 1;
+					width: 50%;
+					left: 50%;
+					margin-left: -25%;
+					top: 20px;
+				}
+				.mapboxgl-ctrl-geocoder {
+					min-width: 100%;
+				}
+				#slider {
+					max-width: 1100px !important;
+					margin: 0;
+				}
+				.flexslider {
+					max-width: 1100px !important;
+					overflow: hidden;
+				}
+				.flexslider ul {
+					margin-left: 0;
+				}
+				.color-1 {
+					background-color: #aaa;
+				}
+				.color-2 {
+					background-color: #999;
+				}
+				.color-3 {
+					background-color: #ddd;
+				}
+				.color-4 {
+					background-color: #eee;
+				}
+				.marker {
+background-image: url('https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png');
 
 
-    {% block stylesheets %}
-    <link rel="shortcut icon" href="">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="asssets/css/leps-slider.css">
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="assets/libs/css/style.css">
 
-    <link rel="stylesheet" href="assets/css/flexslider.css" type="text/css">
+				background-size: cover;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				cursor: pointer;
+				}
+				.mapboxgl-popup {
+				max-width: 200px;
+				}
 
-    <link href="https://fonts.googleapis.com/css?family=Gaegu:400,700|Indie+Flower" rel="stylesheet">
-
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
-    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-
-    <link rel="stylesheet" href="style/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+				.mapboxgl-popup-content {
+				text-align: center;
+				font-family: 'Open Sans', sans-serif;
+				}
+			</style>
 
 
-    <link rel="stylesheet" href="style/icon.css">
-    <link rel="stylesheet" href="style/loader.css">
-    <link rel="stylesheet" href="style/idangerous.swiper.css">
-    <link rel="stylesheet" href="style/stylesheet.css">
-</head>
-{% endblock %}
+			{% block stylesheets %}
+				<link rel="shortcut icon" href="">
+				<link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+				<link rel="stylesheet" type="text/css" href="asssets/css/leps-slider.css">
+				<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
+				<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+				<link href="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css" rel="stylesheet"/>
+				<link rel="stylesheet" href="assets/libs/css/style.css">
+
+				<link rel="stylesheet" href="assets/css/flexslider.css" type="text/css">
+
+				<link href="https://fonts.googleapis.com/css?family=Gaegu:400,700|Indie+Flower" rel="stylesheet">
+
+				<link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+				<link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
+				<link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
+				<link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+				<link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
+				<link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+
+				<link rel="stylesheet" href="style/bootstrap.min.css">
+				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+				<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 
-<header>
-    <div class="container-fluid custom-container">
-        <div class="row no_row row-header">
-            <div class="brand-be">
-                <a href="{{ path("home") }}"><img src="{{ asset('logo/logo5.png ') }}" alt="PARTYLIT" class="be_logo" style="margin-top:-55px;width: 150px">
-                </a>
-            </div>
-            <div class="header-menu-block">
-                <button class="cmn-toggle-switch cmn-toggle-switch__htx">
-                    <span></span>
-                </button>
-                <ul class="header-menu" id="one">
-                    <li class="active-header">
-                        <a href="blog-detail-2.html">FIND EVENTS</a>
-                        <i class="fa fa-angle-down"></i>
-                        <ul>
-                            <li>
-                                <a href="activity.html">Type Of Event</a>
-                                <i class="fa fa-angle-right"></i>
-                                <i class="fa fa-angle-down"></i>
-                                <ul>
-                                    <li><a href="#">Sport Event</a></li>
-                                    <li><a href="#">Cultural Event</a></li>
-                                    <li><a href="#">Festival</a></li>
-                                    <li><a href="#">Urban</a></li>
-                                    <li><a href="#">Carnaval</a></li>
-                                    <li><a href="#">Musical</a></li>
-                                    <li><a href="#">Exposition</a></li>
-                                    <li><a href="#">Concerts</a></li>
-                                    <li><a href="#">Foire</a></li>
-                                    <li><a href="#">Salon</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">SEARCH</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="{{ path("home.allEvents") }}">ALL EVENT'S</a>
-                    </li>
-                    <li>
-                        <a href="{{ path("salle_loc.All") }}">FOR RENT</a>
-
-                    </li>
+				<link rel="stylesheet" href="style/icon.css">
+				<link rel="stylesheet" href="style/loader.css">
+				<link rel="stylesheet" href="style/idangerous.swiper.css">
+				<link rel="stylesheet" href="style/stylesheet.css">
+			</head>
+		{% endblock %}
 
 
-                    <li>
-                        <a href="#">TIKETS</a>
-                        <i class="fa fa-angle-down"></i>
-                        <ul>
-                            <li><a href="#">Concerts</a></li>
-                            <li><a href="#">Sport</a></li>
-                            <li><a href="#">Festival</a></li>
-                            <li><a href="#">Expositiont</a></li>
-                            <li><a href="#">StandUp Commedi</a></li>
-                            <li><a href="#">Cultural Event</a></li>
-                            <li><a href="#">Foire</a></li>
-                            <li><a href="#">Carnaval</a></li>
-                            <li><a href="#">Salon</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="{{ path("author.allAuthors") }}">COMMUNITY</a>
-                        <i class="fa fa-angle-down"></i>
-                        <ul>
-                            <li>
-                                <a href="#">Promotors</a>
-                            </li>
-                            <li>
-                                <a href="#">DJ's</a>
-                            </li>
-                            <li>
-                                <a href="#">Place owners</a>
-                            </li>
-                            {# <li><a href="messages-2.html"></a>Members</li> #}
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+		<header>
+			<div class="container-fluid custom-container">
+				<div class="row no_row row-header">
+					<div class="brand-be">
+						<a href="{{ path("home") }}"><img src="{{ asset('logo/logo5.png ') }}" alt="PARTYLIT" class="be_logo" style="margin-top:-55px;width: 150px">
+						</a>
+					</div>
+					<div class="header-menu-block">
+						<button class="cmn-toggle-switch cmn-toggle-switch__htx">
+							<span></span>
+						</button>
+						<ul class="header-menu" id="one">
+							<li class="active-header">
+								<a href="blog-detail-2.html">FIND EVENTS</a>
+								<i class="fa fa-angle-down"></i>
+								<ul>
+									<li>
+										<a href="activity.html">Type Of Event</a>
+										<i class="fa fa-angle-right"></i>
+										<i class="fa fa-angle-down"></i>
+										<ul>
+											<li><a href="#">Sport Event</a></li>
+											<li><a href="#">Cultural Event</a></li>
+											<li><a href="#">Festival</a></li>
+											<li><a href="#">Urban</a></li>
+											<li><a href="#">Carnaval</a></li>
+											<li><a href="#">Musical</a></li>
+											<li><a href="#">Exposition</a></li>
+											<li><a href="#">Concerts</a></li>
+											<li><a href="#">Foire</a></li>
+											<li><a href="#">Salon</a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">SEARCH</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="{{ path("home.allEvents") }}">ALL EVENT'S</a>
+							</li>
+							<li>
+								<a href="{{ path("salle_loc.All") }}">FOR RENT</a>
+
+							</li>
 
 
-            <div class="login-header-block">
+							<li>
+								<a href="#">TIKETS</a>
+								<i class="fa fa-angle-down"></i>
+								<ul>
+									<li><a href="#">Concerts</a></li>
+									<li><a href="#">Sport</a></li>
+									<li><a href="#">Festival</a></li>
+									<li><a href="#">Expositiont</a></li>
+									<li><a href="#">StandUp Commedi</a></li>
+									<li><a href="#">Cultural Event</a></li>
+									<li><a href="#">Foire</a></li>
+									<li><a href="#">Carnaval</a></li>
+									<li><a href="#">Salon</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="{{ path("author.allAuthors") }}">COMMUNITY</a>
+								<i class="fa fa-angle-down"></i>
+								<ul>
+									<li>
+										<a href="#">Promotors</a>
+									</li>
+									<li>
+										<a href="#">DJ's</a>
+									</li>
+									<li>
+										<a href="#">Place owners</a>
+									</li>
+									{# <li><a href="messages-2.html"></a>Members</li> #}
+								</ul>
+							</li>
+						</ul>
+					</div>
 
-                {% if app.user %}
+
+					<div class="login-header-block">
+
+						{% if app.user %}
 
 
-                <a class="notofications-popup" href="blog-detail-2.html">
-                    <i class="far fa-bell"></i>
-                    <span class="noto-count">23</span>
-                </a>
-                <div class="noto-popup notofications-block" style="margin-top: 20px">
-                    <div class="noto-label">Your Notification</div>
-                    <div class="noto-body">
-                        <div class="noto-entry">
-                            <div class="noto-content clearfix">
-                                <div class="noto-img">
-                                    <a href="blog-detail-2.html">
-                                        <img src="img/c1.png" alt="" class="be-ava-comment">
-                                    </a>
-                                </div>
-                                <div class="noto-text">
-                                    <div class="noto-text-top">
+							<a class="notofications-popup" href="blog-detail-2.html">
+								<i class="far fa-bell"></i>
+								<span class="noto-count">23</span>
+							</a>
+							<div class="noto-popup notofications-block" style="margin-top: 20px">
+								<div class="noto-label">Your Notification</div>
+								<div class="noto-body">
+									<div class="noto-entry">
+										<div class="noto-content clearfix">
+											<div class="noto-img">
+												<a href="blog-detail-2.html">
+													<img src="img/c1.png" alt="" class="be-ava-comment">
+												</a>
+											</div>
+											<div class="noto-text">
+												<div class="noto-text-top">
 													<span class="noto-name">
 														<a href="blog-detail-2.html">Ravi Sah</a>
 													</span>
-                                        <span class="noto-date">
+													<span class="noto-date">
 														<i class="fa fa-clock-o"></i>
 														May 27, 2015</span>
-                                    </div>
-                                    <a href="blog-detail-2.html" class="noto-message">Start following your work</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="noto-entry">
-                            <div class="noto-content clearfix">
-                                <div class="noto-img">
-                                    <a href="blog-detail-2.html">
-                                        <img src="img/c6.jpg" alt="" class="be-ava-comment">
-                                    </a>
-                                </div>
-                                <div class="noto-text">
-                                    <div class="noto-text-top">
+												</div>
+												<a href="blog-detail-2.html" class="noto-message">Start following your work</a>
+											</div>
+										</div>
+									</div>
+									<div class="noto-entry">
+										<div class="noto-content clearfix">
+											<div class="noto-img">
+												<a href="blog-detail-2.html">
+													<img src="img/c6.jpg" alt="" class="be-ava-comment">
+												</a>
+											</div>
+											<div class="noto-text">
+												<div class="noto-text-top">
 													<span class="noto-name">
 														<a href="blog-detail-2.html">Louis Paquet</a>
 													</span>
-                                        <span class="noto-date">
+													<span class="noto-date">
 														<i class="fa fa-clock-o"></i>
 														May 27, 2015</span>
-                                    </div>
-                                    <div class="noto-message">
-                                        Saved “<a href="blog-detail-2.html">Omni-onepage app template</a>” to Inspiration
-                                        <a class="portfolio-link type-2 clearfix" href="blog-detail-2.html">
-                                            <img src="img/p_link_23.jpg" alt="">
-                                            <img src="img/p_link_31.jpg" alt="">
-                                            <img src="img/p_link_32.jpg" alt="">
-                                            <img src="img/p_link_33.jpg" alt="">
-                                            <img src="img/p_link_34.jpg" alt="">
-                                            <div class="color_bg">
-                                                <span>view portfolio</span>
-                                                <span class="child"></span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="noto-entry">
-                            <div class="noto-content clearfix">
-                                <div class="noto-img">
-                                    <a href="blog-detail-2.html">
-                                        <img src="img/c7.jpg" alt="" class="be-ava-comment">
-                                    </a>
-                                </div>
-                                <div class="noto-text">
-                                    <div class="noto-text-top">
+												</div>
+												<div class="noto-message">
+													Saved “<a href="blog-detail-2.html">Omni-onepage app template</a>” to Inspiration
+													<a class="portfolio-link type-2 clearfix" href="blog-detail-2.html">
+														<img src="img/p_link_23.jpg" alt="">
+														<img src="img/p_link_31.jpg" alt="">
+														<img src="img/p_link_32.jpg" alt="">
+														<img src="img/p_link_33.jpg" alt="">
+														<img src="img/p_link_34.jpg" alt="">
+														<div class="color_bg">
+															<span>view portfolio</span>
+															<span class="child"></span>
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="noto-entry">
+										<div class="noto-content clearfix">
+											<div class="noto-img">
+												<a href="blog-detail-2.html">
+													<img src="img/c7.jpg" alt="" class="be-ava-comment">
+												</a>
+											</div>
+											<div class="noto-text">
+												<div class="noto-text-top">
 													<span class="noto-name">
 														<a href="blog-detail-2.html">v-a studio</a>
 													</span>
-                                        <span class="noto-date">
+													<span class="noto-date">
 														<i class="fa fa-clock-o"></i>
 														May 27, 2015</span>
-                                    </div>
-                                    <div class="noto-message">
-                                        <a class="noto-left" class="" href="blog-detail-2.html">
-                                            <img src="img/n_pop_1.jpg" alt="">
-                                        </a>
-                                        Saved “<a href="blog-detail-2.html">Omni-onepage app template</a>” to Inspiration
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="noto-entry">
-                            <div class="noto-content clearfix">
-                                <div class="noto-img">
-                                    <a href="blog-detail-2.html">
-                                        <img src="img/c8.jpg" alt="" class="be-ava-comment">
-                                    </a>
-                                </div>
-                                <div class="noto-text">
-                                    <div class="noto-text-top">
+												</div>
+												<div class="noto-message">
+													<a class="noto-left" class="" href="blog-detail-2.html">
+														<img src="img/n_pop_1.jpg" alt="">
+													</a>
+													Saved “<a href="blog-detail-2.html">Omni-onepage app template</a>” to Inspiration
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="noto-entry">
+										<div class="noto-content clearfix">
+											<div class="noto-img">
+												<a href="blog-detail-2.html">
+													<img src="img/c8.jpg" alt="" class="be-ava-comment">
+												</a>
+											</div>
+											<div class="noto-text">
+												<div class="noto-text-top">
 													<span class="noto-name">
 														<a href="blog-detail-2.html">Hoang Nguyen</a>
 													</span>
-                                        <span class="noto-date">
+													<span class="noto-date">
 														<i class="fa fa-clock-o"></i>
 														May 27, 2015</span>
-                                    </div>
-                                    <div class="noto-message">
-                                        <a class="noto-left" class="" href="blog-detail-2.html">
-                                            <img src="img/n_pop_2.jpg" alt="">
-                                        </a>
-                                        Awesome, love the big whitespace and also everything between :)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="noto-entry">
-                            <div class="noto-content clearfix">
-                                <div class="noto-img">
-                                    <a href="blog-detail-2.html">
-                                        <img src="img/c9.jpg" alt="" class="be-ava-comment">
-                                    </a>
-                                </div>
-                                <div class="noto-text">
-                                    <div class="noto-text-top">
+												</div>
+												<div class="noto-message">
+													<a class="noto-left" class="" href="blog-detail-2.html">
+														<img src="img/n_pop_2.jpg" alt="">
+													</a>
+													Awesome, love the big whitespace and also everything between :)
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="noto-entry">
+										<div class="noto-content clearfix">
+											<div class="noto-img">
+												<a href="blog-detail-2.html">
+													<img src="img/c9.jpg" alt="" class="be-ava-comment">
+												</a>
+											</div>
+											<div class="noto-text">
+												<div class="noto-text-top">
 													<span class="noto-name">
 														<a href="blog-detail-2.html">Cüneyt ŞEN</a>
 													</span>
-                                        <span class="noto-date">
+													<span class="noto-date">
 														<i class="fa fa-clock-o"></i>
 														May 27, 2015</span>
-                                    </div>
-                                    <a href="blog-detail-2.html" class="noto-message">
-                                        Start following your work
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a class="messages-popup" href="blog-detail-2.html">
-                    <i class="far fa-envelope"></i>
-                    <span class="noto-count">4</span>
-                </a>
-                <div class="noto-popup messages-block">
-                    <div class="noto-label">Your Messages
-                        <span class="noto-label-links">
+												</div>
+												<a href="blog-detail-2.html" class="noto-message">
+													Start following your work
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<a class="messages-popup" href="blog-detail-2.html">
+								<i class="far fa-envelope"></i>
+								<span class="noto-count">4</span>
+							</a>
+							<div class="noto-popup messages-block">
+								<div class="noto-label">Your Messages
+									<span class="noto-label-links">
 										<a href="{{ path('messages.compose') }}">Live Chat / new message</a>
 										<a href="{{ path("messages.index") }}">View all messages</a>
 									</span>
-                    </div>
-                    <div class="noto-body">
-                        <div class="noto-entry style-2">
-                            <div class="noto-content clearfix">
-                                <div class="noto-img">
-                                    <a href="blog-detail-2.html">
-                                        <img src="img/c1.png" alt="" class="be-ava-comment">
-                                    </a>
-                                </div>
-                                <div class="noto-text">
-                                    <div class="noto-text-top">
+								</div>
+								<div class="noto-body">
+									<div class="noto-entry style-2">
+										<div class="noto-content clearfix">
+											<div class="noto-img">
+												<a href="blog-detail-2.html">
+													<img src="img/c1.png" alt="" class="be-ava-comment">
+												</a>
+											</div>
+											<div class="noto-text">
+												<div class="noto-text-top">
 													<span class="noto-name">
 														<a href="blog-detail-2.html">Ravi Sah</a>
 													</span>
-                                        <span class="noto-date">
+													<span class="noto-date">
 														<i class="fa fa-clock-o"></i>
 														May 27, 2015</span>
-                                    </div>
-                                    <div class="noto-message">Sed velit mauris, pulvinar sit amet accumsan vitae, egestas, pulvinar sit amet accumsan vitae, egestas</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="noto-entry style-2">
-                            <div class="noto-content clearfix">
-                                <div class="noto-img">
-                                    <a href="blog-detail-2.html">
-                                        <img src="img/c6.jpg" alt="" class="be-ava-comment">
-                                    </a>
-                                </div>
-                                <div class="noto-text">
-                                    <div class="noto-text-top">
+												</div>
+												<div class="noto-message">Sed velit mauris, pulvinar sit amet accumsan vitae, egestas, pulvinar sit amet accumsan vitae, egestas</div>
+											</div>
+										</div>
+									</div>
+									<div class="noto-entry style-2">
+										<div class="noto-content clearfix">
+											<div class="noto-img">
+												<a href="blog-detail-2.html">
+													<img src="img/c6.jpg" alt="" class="be-ava-comment">
+												</a>
+											</div>
+											<div class="noto-text">
+												<div class="noto-text-top">
 													<span class="noto-name">
 														<a href="blog-detail-2.html">Louis Paquet</a>
 													</span>
-                                        <span class="noto-date">
+													<span class="noto-date">
 														<i class="fa fa-clock-o"></i>
 														May 27, 2015</span>
-                                    </div>
-                                    <div class="noto-message">
-                                        Pellentesque habitant morbi tristique senectus et netus tristique senectus
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="noto-entry style-2">
-                            <div class="noto-content clearfix">
-                                <div class="noto-img">
-                                    <a href="blog-detail-2.html">
-                                        <img src="img/c9.jpg" alt="" class="be-ava-comment">
-                                    </a>
-                                </div>
-                                <div class="noto-text">
-                                    <div class="noto-text-top">
+												</div>
+												<div class="noto-message">
+													Pellentesque habitant morbi tristique senectus et netus tristique senectus
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="noto-entry style-2">
+										<div class="noto-content clearfix">
+											<div class="noto-img">
+												<a href="blog-detail-2.html">
+													<img src="img/c9.jpg" alt="" class="be-ava-comment">
+												</a>
+											</div>
+											<div class="noto-text">
+												<div class="noto-text-top">
 													<span class="noto-name">
 														<a href="blog-detail-2.html">Cüneyt ŞEN</a>
 													</span>
-                                        <span class="noto-date">
+													<span class="noto-date">
 														<i class="fa fa-clock-o"></i>
 														May 27, 2015</span>
-                                    </div>
-                                    <div class="noto-message">
-                                        Sed id erat vitae libero malesuada dictum vel sit amet eros
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="noto-entry style-2">
-                            <div class="noto-content clearfix">
-                                <div class="noto-img">
-                                    <a href="blog-detail-2.html">
-                                        <img src="img/c10.jpg" alt="" class="be-ava-comment">
-                                    </a>
-                                </div>
-                                <div class="noto-text">
-                                    <div class="noto-text-top">
+												</div>
+												<div class="noto-message">
+													Sed id erat vitae libero malesuada dictum vel sit amet eros
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="noto-entry style-2">
+										<div class="noto-content clearfix">
+											<div class="noto-img">
+												<a href="blog-detail-2.html">
+													<img src="img/c10.jpg" alt="" class="be-ava-comment">
+												</a>
+											</div>
+											<div class="noto-text">
+												<div class="noto-text-top">
 													<span class="noto-name">
 														<a href="blog-detail-2.html">Tomasz Mazurczak</a>
 													</span>
-                                        <span class="noto-date">
+													<span class="noto-date">
 														<i class="fa fa-clock-o"></i>
 														May 27, 2015</span>
-                                    </div>
-                                    <div class="noto-message">
-                                        In molestie libero quis cursus ullamcorper eu rhoncus magna
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+												</div>
+												<div class="noto-message">
+													In molestie libero quis cursus ullamcorper eu rhoncus magna
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 
 
-            </div>
+						</div>
 
 
-            <div class="login-header-block" style="display: flex; flex-direction: row;">
+						<div class="login-header-block" style="display: flex; flex-direction: row;">
 
-                <div class="nav-item dropdown nav-user" style="margin-right: 45px;">
-                    <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('image/'~app.user.image) }}" alt="" class="user-avatar-md rounded-circle" style="height: 45px;width: 45px; border-radius: 105px;"></a>
-                    <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                        <div class="nav-user-info">
-                            <h5 class="mb-0 text-white nav-user-name">
-                                {% if app.user %}
-                                    Hi,
-                                    {{ app.user.user }}
-                                {% else %}
-                                    USER NAME
-                                {% endif %}
-                            </h5>
-                            <span class="status"></span>
-                            <span class="ml-2">Available</span>
-                        </div>
-                        <a class="dropdown-item" href="{{ path('author.index') }}">
-                            <i class="fas fa-user mr-2" style="color:green;"></i>Account</a>
-                        <a class="dropdown-item" href="{{path('author.edit',{'id':app.user.id})}}">
-                            <i class="fas fa-cog mr-2" style="color:#0d58c8; "></i>Setting</a>
-                        <a class="dropdown-item" href="{{ path('app_logout') }}">
-                            <i class="fas fa-power-off mr-2" style="color: red;"></i>Logout</a>
-                    </div>
-                </div>
+							<div class="nav-item dropdown nav-user" style="margin-right: 45px;">
+								<a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('image/'~app.user.image) }}" alt="" class="user-avatar-md rounded-circle" style="height: 45px;width: 45px; border-radius: 105px;"></a>
+								<div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+									<div class="nav-user-info">
+										<h5 class="mb-0 text-white nav-user-name">
+											{% if app.user %}
+												Hi,
+												{{ app.user.user }}
+											{% else %}
+												USER NAME
+											{% endif %}
+										</h5>
+										<span class="status"></span>
+										<span class="ml-2">Available</span>
+									</div>
+									<a class="dropdown-item" href="{{ path('author.index') }}">
+										<i class="fas fa-user mr-2" style="color:green;"></i>Account</a>
+									<a class="dropdown-item" href="{{path('author.edit',{'id':app.user.id})}}">
+										<i class="fas fa-cog mr-2" style="color:#0d58c8; "></i>Setting</a>
+									<a class="dropdown-item" href="{{ path('app_logout') }}">
+										<i class="fas fa-power-off mr-2" style="color: red;"></i>Logout</a>
+								</div>
+							</div>
 
-                {# <div class="be-drop-down login-user-down " style="margin-right: 30px;" >
+							{# <div class="be-drop-down login-user-down " style="margin-right: 30px;" >
 													                    <img class="login-user" src="{{ asset('image/'~app.user.image) }}" alt="" style="height: 45px;">
 													                    <span >Hi,<a href="{{ path('author.index') }}"> <span>{{ app.user.user}}</span></a></span>
 													                    <ul class="drop-down-list">
@@ -459,475 +464,479 @@
 													                        <li><a href="">Most Discussed</a></li>
 													                        <li>
 													                            <a #}
-                {#class="btn-login btn color-1 size-2 hover-2"#}
-                {# href="{{ path('app_logout') }}"><i class="fa fa-user" style="color: #9e1a1a;"></i>
+							{#class="btn-login btn color-1 size-2 hover-2"#}
+							{# href="{{ path('app_logout') }}"><i class="fa fa-user" style="color: #9e1a1a;"></i>
 													                                Log out</a></li>
 													                    </ul>
 													                </div>#}<div class="login" style="display: flex;flex-direction: row;"> {# <a class="btn-login btn color-1 size-2 hover-2" href="{{ path('app_logout') }}"><i class="fa fa-user" style="color: #9e1a1a;"></i>
 															                        Log out</a>#}
-                    {#<a class="btn-login btn color-1 size-2 hover-2" href="{{ path('evenement.add') }}">
+								{#<a class="btn-login btn color-1 size-2 hover-2" href="{{ path('evenement.add') }}">
 															                        <i class="fas fa-plus-circle"></i> <span class="be-dropdown-content"> ADD AN EVENT</span></a>#}
-                </div>
+							</div>
 
-                {% else %}
+						{% else %}
 
-                <div class="login">
+							<div class="login">
 
-                    <a class="btn-login btn color-1 size-2 hover-2" href="{{ path('app_login') }}">
-                        <i class="fa fa-user" style="color: #449d44"></i>
-                        Log in</a>
-                    </li>
-
-
-                    {% endif %}
+								<a class="btn-login btn color-1 size-2 hover-2" href="{{ path('app_login') }}">
+									<i class="fa fa-user" style="color: #449d44"></i>
+									Log in</a>
+							</li>
 
 
-                </div>
+						{% endif %}
 
-            </div>
-        </div>
-    </div>
-    </head>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</head>
 </header>
 {# {% for message in app.flashes('success')  %}
 <div id='success' class="alert alert-success " style="background-color: #65be71 !important;width: 94vw;margin-left: 55px;text-align: center;font-weight: bolder;font-size: 14px">
+
+
+
 		<button type="button" class="close" data-dismiss="alert-success " aria-label="Close">
 			<span id="close" aria-hidden="true">&times;</span>
 		</button>
+
 		{{ message }}
 	</div>
 {% endfor %}
-#}
+ #}
 
 
 {% block body %}
 {% endblock %}
 <footer>
-    <div class="footer_slider">
-        <div class="swiper-container" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="responsive" data-xs-slides="4" data-sm-slides="8" data-md-slides="14" data-lg-slides="19" data-add-slides="19">
-            <div
-                    class="swiper-wrapper">
-                {# {%  for evenement in evenement %}#}
-                <div class="swiper-slide active" data-val="0">
-                    <img class="img-responsive img-full" src=" {#{{ asset('image/'~evenement.image) }}#}" alt="">
-                </div>
-                {# {% endfor %}#}
-                <div class="swiper-slide" data-val="1">
-                    <img class="img-responsive img-full" src="img/f2.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="2">
-                    <img class="img-responsive img-full" src="img/f3.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="3">
-                    <img class="img-responsive img-full" src="img/f4.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="4">
-                    <img class="img-responsive img-full" src="img/f5.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="5">
-                    <img class="img-responsive img-full" src="img/f6.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="6">
-                    <img class="img-responsive img-full" src="img/f7.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="7">
-                    <img class="img-responsive img-full" src="img/f8.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="8">
-                    <img class="img-responsive img-full" src="img/f9.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="9">
-                    <img class="img-responsive img-full" src="img/f10.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="10">
-                    <img class="img-responsive img-full" src="img/f11.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="11">
-                    <img class="img-responsive img-full" src="img/f12.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="12">
-                    <img class="img-responsive img-full" src="img/f13.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="13">
-                    <img class="img-responsive img-full" src="img/f14.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="14">
-                    <img class="img-responsive img-full" src="img/f15.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="15">
-                    <img class="img-responsive img-full" src="img/f16.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="16">
-                    <img class="img-responsive img-full" src="img/f17.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="17">
-                    <img class="img-responsive img-full" src="img/f18.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="18">
-                    <img class="img-responsive img-full" src="img/f19.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="19">
-                    <img class="img-responsive img-full" src="img/f1.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="20">
-                    <img class="img-responsive img-full" src="img/f2.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="21">
-                    <img class="img-responsive img-full" src="img/f3.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="22">
-                    <img class="img-responsive img-full" src="img/f4.jpg" alt="">
-                </div>
-                <div class="swiper-slide" data-val="23">
-                    <img class="img-responsive img-full" src="img/f5.jpg" alt="">
-                </div>
-            </div>
-            <div class="pagination hidden"></div>
-        </div>
-    </div>
-    <div class="footer-main">
-        <div class="container-fluid custom-container">
-            <div class="row">
-                <div class="col-md-3 col-xl-4">
-                    <div class="footer-block">
-                        <h1 class="footer-title">About Us</h1>
-                        <p>Vestibulum tincidunt, augue fermentum accumsan viverra, eros dui rutrum libero, nec imperdiet felis sem in augue luctus
-                            <a href="blog-detail-2.html">diam a porta</a>
-                            iaculis. Vivamus sit amet fermentum nisl. Duis id
-                            <a href="blog-detail-2.html">massa id purus</a>
-                            tristique varius a sit amet est. Fusce dolor libero, efficitur et lobortis at, faucibus nec nunc.</p>
-                        <ul class="soc_buttons">
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-pinterest-p"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 col-xl-2">
-                    <div class="footer-block">
-                        <h1 class="footer-title">Some Links</h1>
-                        <div class="row footer-list-footer">
-                            <div class="col-md-6">
-                                <ul class="link-list">
-                                    <li>
-                                        <a href="{{ path('pages.about-us') }}">About Us</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('pages.siteMap') }}">Site-map</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('pages.contact') }}">Contacts</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('pages.work') }}">works</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-detail-2.html">Projets</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="link-list">
-                                    <li>
-                                        <a href="blog-detail-2.html">New Works</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-detail-2.html">Popular Authors</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-detail-2.html">New Authors</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-detail-2.html">Career</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('pages.faq') }}">FAQ</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 galerry">
-                    <div class="footer-block">
-                        <h1 class="footer-title">Recent Event's</h1>
-                        <a href="blog-detail-2.html"><img src="img/g1.jpg" alt=""></a>
-                        <a href="blog-detail-2.html"><img src="img/g2.jpg" alt=""></a>
-                        <a href="blog-detail-2.html"><img src="img/g3.jpg" alt=""></a>
-                        <a href="blog-detail-2.html"><img src="img/g4.jpg" alt=""></a>
-                        <a href="blog-detail-2.html"><img src="img/g5.jpg" alt=""></a>
-                        <a href="blog-detail-2.html"><img src="img/g6.jpg" alt=""></a>
-                        <a href="blog-detail-2.html"><img src="img/g7.jpg" alt=""></a>
-                        <a href="blog-detail-2.html"><img src="img/g8.jpg" alt=""></a>
-                        <a href="blog-detail-2.html"><img src="img/g9.jpg" alt=""></a>
-                        <a href="blog-detail-2.html"><img src="img/g10.jpg" alt=""></a>
-                        <a href="blog-detail-2.html"><img src="img/g11.jpg" alt=""></a>
-                        <a href="blog-detail-2.html"><img src="img/g12.jpg" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="footer-block">
-                        <h1 class="footer-title">Subscribe On Our News</h1>
-                        <form action="./" class="subscribe-form">
-                            <input type="text" placeholder="Yout Name" required>
-                            <div class="submit-block">
-                                <i class="fa fa-envelope-o"></i>
-                                <input type="submit" value="">
-                            </div>
-                        </form>
-                        <div class="soc-activity">
-                            <div class="soc_ico_triangle">
-                                <i class="fa fa-twitter"></i>
-                            </div>
-                            <div class="message-soc">
-                                <div class="date">16h ago</div>
-                                <a href="blog-detail-2.html" class="account">@faq</a>
-                                vestibulum accumsan est
-                                <a href="blog-detail-2.html" class="heshtag">blog-detail-2.htmlmalesuada</a>
-                                sem auctor, eu aliquet nisi ornare leo sit amet varius egestas.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container-fluid custom-container">
-            <div class="col-md-12 footer-end clearfix">
-                <div class="left">
+<div class="footer_slider">
+	<div class="swiper-container" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="responsive" data-xs-slides="4" data-sm-slides="8" data-md-slides="14" data-lg-slides="19" data-add-slides="19">
+		<div
+			class="swiper-wrapper">
+			{# {%  for evenement in evenement %}#}
+			<div class="swiper-slide active" data-val="0">
+				<img class="img-responsive img-full" src=" {#{{ asset('image/'~evenement.image) }}#}" alt="">
+			</div>
+			{# {% endfor %}#}
+			<div class="swiper-slide" data-val="1">
+				<img class="img-responsive img-full" src="img/f2.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="2">
+				<img class="img-responsive img-full" src="img/f3.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="3">
+				<img class="img-responsive img-full" src="img/f4.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="4">
+				<img class="img-responsive img-full" src="img/f5.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="5">
+				<img class="img-responsive img-full" src="img/f6.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="6">
+				<img class="img-responsive img-full" src="img/f7.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="7">
+				<img class="img-responsive img-full" src="img/f8.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="8">
+				<img class="img-responsive img-full" src="img/f9.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="9">
+				<img class="img-responsive img-full" src="img/f10.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="10">
+				<img class="img-responsive img-full" src="img/f11.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="11">
+				<img class="img-responsive img-full" src="img/f12.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="12">
+				<img class="img-responsive img-full" src="img/f13.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="13">
+				<img class="img-responsive img-full" src="img/f14.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="14">
+				<img class="img-responsive img-full" src="img/f15.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="15">
+				<img class="img-responsive img-full" src="img/f16.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="16">
+				<img class="img-responsive img-full" src="img/f17.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="17">
+				<img class="img-responsive img-full" src="img/f18.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="18">
+				<img class="img-responsive img-full" src="img/f19.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="19">
+				<img class="img-responsive img-full" src="img/f1.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="20">
+				<img class="img-responsive img-full" src="img/f2.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="21">
+				<img class="img-responsive img-full" src="img/f3.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="22">
+				<img class="img-responsive img-full" src="img/f4.jpg" alt="">
+			</div>
+			<div class="swiper-slide" data-val="23">
+				<img class="img-responsive img-full" src="img/f5.jpg" alt="">
+			</div>
+		</div>
+		<div class="pagination hidden"></div>
+	</div>
+</div>
+<div class="footer-main">
+	<div class="container-fluid custom-container">
+		<div class="row">
+			<div class="col-md-3 col-xl-4">
+				<div class="footer-block">
+					<h1 class="footer-title">About Us</h1>
+					<p>Vestibulum tincidunt, augue fermentum accumsan viverra, eros dui rutrum libero, nec imperdiet felis sem in augue luctus
+						<a href="blog-detail-2.html">diam a porta</a>
+						iaculis. Vivamus sit amet fermentum nisl. Duis id
+						<a href="blog-detail-2.html">massa id purus</a>
+						tristique varius a sit amet est. Fusce dolor libero, efficitur et lobortis at, faucibus nec nunc.</p>
+					<ul class="soc_buttons">
+						<li>
+							<a href="">
+								<i class="fa fa-facebook"></i>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<i class="fa fa-twitter"></i>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<i class="fa fa-google-plus"></i>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<i class="fa fa-pinterest-p"></i>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<i class="fa fa-instagram"></i>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<i class="fa fa-linkedin"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-3 col-xl-2">
+				<div class="footer-block">
+					<h1 class="footer-title">Some Links</h1>
+					<div class="row footer-list-footer">
+						<div class="col-md-6">
+							<ul class="link-list">
+								<li>
+									<a href="{{ path('pages.about-us') }}">About Us</a>
+								</li>
+								<li>
+									<a href="{{ path('pages.siteMap') }}">Site-map</a>
+								</li>
+								<li>
+									<a href="{{ path('pages.contact') }}">Contacts</a>
+								</li>
+								<li>
+									<a href="{{ path('pages.work') }}">works</a>
+								</li>
+								<li>
+									<a href="blog-detail-2.html">Projets</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-md-6">
+							<ul class="link-list">
+								<li>
+									<a href="blog-detail-2.html">New Works</a>
+								</li>
+								<li>
+									<a href="blog-detail-2.html">Popular Authors</a>
+								</li>
+								<li>
+									<a href="blog-detail-2.html">New Authors</a>
+								</li>
+								<li>
+									<a href="blog-detail-2.html">Career</a>
+								</li>
+								<li>
+									<a href="{{ path('pages.faq') }}">FAQ</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 galerry">
+				<div class="footer-block">
+					<h1 class="footer-title">Recent Event's</h1>
+					<a href="blog-detail-2.html"><img src="img/g1.jpg" alt=""></a>
+					<a href="blog-detail-2.html"><img src="img/g2.jpg" alt=""></a>
+					<a href="blog-detail-2.html"><img src="img/g3.jpg" alt=""></a>
+					<a href="blog-detail-2.html"><img src="img/g4.jpg" alt=""></a>
+					<a href="blog-detail-2.html"><img src="img/g5.jpg" alt=""></a>
+					<a href="blog-detail-2.html"><img src="img/g6.jpg" alt=""></a>
+					<a href="blog-detail-2.html"><img src="img/g7.jpg" alt=""></a>
+					<a href="blog-detail-2.html"><img src="img/g8.jpg" alt=""></a>
+					<a href="blog-detail-2.html"><img src="img/g9.jpg" alt=""></a>
+					<a href="blog-detail-2.html"><img src="img/g10.jpg" alt=""></a>
+					<a href="blog-detail-2.html"><img src="img/g11.jpg" alt=""></a>
+					<a href="blog-detail-2.html"><img src="img/g12.jpg" alt=""></a>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="footer-block">
+					<h1 class="footer-title">Subscribe On Our News</h1>
+					<form action="./" class="subscribe-form">
+						<input type="text" placeholder="Yout Name" required>
+						<div class="submit-block">
+							<i class="fa fa-envelope-o"></i>
+							<input type="submit" value="">
+						</div>
+					</form>
+					<div class="soc-activity">
+						<div class="soc_ico_triangle">
+							<i class="fa fa-twitter"></i>
+						</div>
+						<div class="message-soc">
+							<div class="date">16h ago</div>
+							<a href="blog-detail-2.html" class="account">@faq</a>
+							vestibulum accumsan est
+							<a href="blog-detail-2.html" class="heshtag">blog-detail-2.htmlmalesuada</a>
+							sem auctor, eu aliquet nisi ornare leo sit amet varius egestas.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="footer-bottom">
+	<div class="container-fluid custom-container">
+		<div class="col-md-12 footer-end clearfix">
+			<div class="left">
 				<span class="copy">© 2019. All rights reserved.
 					<span class="white">
 						<a href="blog-detail-2.html">
 							PARTYLIT</a>
 					</span>
 				</span>
-                    {#
-                    <span class="created">Created with LOVE by <span class="white"><a href="blog-detail-2.html"> NRGThemes</a></span></span>#}
-                </div>
-                <div class="right">
-                    <a class="btn color-7 size-2 hover-9">About Us</a>
-                    <a class="btn color-7 size-2 hover-9">Help</a>
-                    <a class="btn color-7 size-2 hover-9">Privacy Policy</a>
-                </div>
-            </div>
-        </div>
-    </div></footer><div class="be-fixed-filter"></div><div class="large-popup login">
-    <div class="large-popup-fixed"></div>
-    <div class="container large-popup-container">
-        <div class="row">
-            <div class="col-md-8 col-md-push-2 col-lg-6 col-lg-push-3  large-popup-content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <i class="fa fa-times close-button"></i>
-                        <h5 class="large-popup-title">Log in</h5>
-                    </div>
-                    <form action="./" class="popup-input-search">
-                        <div class="col-md-6">
-                            <input class="input-signtype" type="email" required="" placeholder="Your email">
-                        </div>
-                        <div class="col-md-6">
-                            <input class="input-signtype" type="password" required="" placeholder="Password">
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="be-checkbox">
-                                <label class="check-box">
-                                    <input class="checkbox-input" type="checkbox" value="">
-                                    <span class="check-box-sign"></span>
-                                </label>
-                                <span class="large-popup-text">
+				{#
+								                        <span class="created">Created with LOVE by <span class="white"><a href="blog-detail-2.html"> NRGThemes</a></span></span>#}
+			</div>
+			<div class="right">
+				<a class="btn color-7 size-2 hover-9">About Us</a>
+				<a class="btn color-7 size-2 hover-9">Help</a>
+				<a class="btn color-7 size-2 hover-9">Privacy Policy</a>
+			</div>
+		</div>
+	</div>
+</div></footer><div class="be-fixed-filter"></div><div class="large-popup login">
+<div class="large-popup-fixed"></div>
+<div class="container large-popup-container">
+	<div class="row">
+		<div class="col-md-8 col-md-push-2 col-lg-6 col-lg-push-3  large-popup-content">
+			<div class="row">
+				<div class="col-md-12">
+					<i class="fa fa-times close-button"></i>
+					<h5 class="large-popup-title">Log in</h5>
+				</div>
+				<form action="./" class="popup-input-search">
+					<div class="col-md-6">
+						<input class="input-signtype" type="email" required="" placeholder="Your email">
+					</div>
+					<div class="col-md-6">
+						<input class="input-signtype" type="password" required="" placeholder="Password">
+					</div>
+					<div class="col-xs-6">
+						<div class="be-checkbox">
+							<label class="check-box">
+								<input class="checkbox-input" type="checkbox" value="">
+								<span class="check-box-sign"></span>
+							</label>
+							<span class="large-popup-text">
 								Stay signed in
 							</span>
-                            </div>
+						</div>
 
-                            <a href="blog-detail-2.html" class="link-large-popup">Forgot password?</a>
-                        </div>
-                        <div class="col-xs-6 for-signin">
-                            <input type="submit" class="be-popup-sign-button" value="SIGN IN">
-                        </div>
-                        <div class="cont">
-                            <div>
-                                <a class="btn color-1 size-1 hover-1" href="blog-detail-2.html">
-                                    <i class="fa fa-facebook"></i>sign up via facebook</a>
-                            </div>
+						<a href="blog-detail-2.html" class="link-large-popup">Forgot password?</a>
+					</div>
+					<div class="col-xs-6 for-signin">
+						<input type="submit" class="be-popup-sign-button" value="SIGN IN">
+					</div>
+					<div class="cont">
+						<div>
+							<a class="btn color-1 size-1 hover-1" href="blog-detail-2.html">
+								<i class="fa fa-facebook"></i>sign up via facebook</a>
+						</div>
 
-                            <div>
-                                <a class="be-register btn color-3 size-1 hover-6">
-                                    <i class="fa fa-lock"></i>sign up now</a>
-                            </div>
-                        </div>
+						<div>
+							<a class="be-register btn color-3 size-1 hover-6">
+								<i class="fa fa-lock"></i>sign up now</a>
+						</div>
+					</div>
 
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div></div><div class="large-popup register">
-    <div class="large-popup-fixed"></div>
-    <div class="container large-popup-container">
-        <div class="row">
-            <div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <i class="fa fa-times close-button"></i>
-                        <h5 class="large-popup-title">Register</h5>
-                    </div>
-                    <form action="./" class="popup-input-search">
-                        <div class="col-md-6">
-                            <input class="input-signtype" type="text" required="" placeholder="First Name">
-                        </div>
-                        <div class="col-md-6">
-                            <input class="input-signtype" type="text" required="" placeholder="Last Name">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="be-custom-select-block">
-                                <select class="be-custom-select">
-                                    <option value="" disabled selected>
-                                        Country
-                                    </option>
-                                    <option value="">USA</option>
-                                    <option value="">Canada</option>
-                                    <option value="">England</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <input class="input-signtype" type="text" required="" placeholder="Email">
-                        </div>
-                        <div class="col-md-6">
-                            <input class="input-signtype" type="text" required="" placeholder="Password">
-                        </div>
-                        <div class="col-md-6">
-                            <input class="input-signtype" type="text" required="" placeholder="Repeat Password">
-                        </div>
-                        <div class="col-md-12 be-date-block">
+				</form>
+			</div>
+		</div>
+	</div>
+</div></div><div class="large-popup register">
+<div class="large-popup-fixed"></div>
+<div class="container large-popup-container">
+	<div class="row">
+		<div class="col-md-10 col-md-push-1 col-lg-8 col-lg-push-2 large-popup-content">
+			<div class="row">
+				<div class="col-md-12">
+					<i class="fa fa-times close-button"></i>
+					<h5 class="large-popup-title">Register</h5>
+				</div>
+				<form action="./" class="popup-input-search">
+					<div class="col-md-6">
+						<input class="input-signtype" type="text" required="" placeholder="First Name">
+					</div>
+					<div class="col-md-6">
+						<input class="input-signtype" type="text" required="" placeholder="Last Name">
+					</div>
+					<div class="col-md-6">
+						<div class="be-custom-select-block">
+							<select class="be-custom-select">
+								<option value="" disabled selected>
+									Country
+								</option>
+								<option value="">USA</option>
+								<option value="">Canada</option>
+								<option value="">England</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<input class="input-signtype" type="text" required="" placeholder="Email">
+					</div>
+					<div class="col-md-6">
+						<input class="input-signtype" type="text" required="" placeholder="Password">
+					</div>
+					<div class="col-md-6">
+						<input class="input-signtype" type="text" required="" placeholder="Repeat Password">
+					</div>
+					<div class="col-md-12 be-date-block">
 						<span class="large-popup-text">
 							Date of birth
 						</span>
-                            <div class="be-custom-select-block mounth">
-                                <select class="be-custom-select">
-                                    <option value="" disabled selected>
-                                        Mounth
-                                    </option>
-                                    <option value="">January</option>
-                                    <option value="">February</option>
-                                    <option value="">March</option>
-                                    <option value="">April</option>
-                                    <option value="">May</option>
-                                    <option value="">June</option>
-                                    <option value="">July</option>
-                                    <option value="">August</option>
-                                    <option value="">September</option>
-                                    <option value="">October</option>
-                                    <option value="">November</option>
-                                    <option value="">December</option>
-                                </select>
-                            </div>
-                            <div class="be-custom-select-block">
-                                <select class="be-custom-select">
-                                    <option value="" disabled selected>
-                                        Day
-                                    </option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
-                                    <option value="">8</option>
-                                    <option value="">9</option>
-                                    <option value="">10</option>
-                                    <option value="">11</option>
-                                    <option value="">12</option>
-                                    <option value="">13</option>
-                                    <option value="">14</option>
-                                    <option value="">15</option>
-                                    <option value="">16</option>
-                                    <option value="">17</option>
-                                    <option value="">18</option>
-                                    <option value="">19</option>
-                                    <option value="">20</option>
-                                    <option value="">21</option>
-                                    <option value="">22</option>
-                                    <option value="">23</option>
-                                    <option value="">24</option>
-                                    <option value="">25</option>
-                                    <option value="">26</option>
-                                    <option value="">27</option>
-                                    <option value="">28</option>
-                                    <option value="">29</option>
-                                    <option value="">30</option>
-                                </select>
-                            </div>
-                            <div class="be-custom-select-block">
-                                <select class="be-custom-select">
-                                    <option value="" disabled selected>
-                                        Year
-                                    </option>
-                                    <option value="">1996</option>
-                                    <option value="">1997</option>
-                                    <option value="">1998</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="be-checkbox">
-                                <label class="check-box">
-                                    <input class="checkbox-input" type="checkbox" required="" value="">
-                                    <span class="check-box-sign"></span>
-                                </label>
-                                <span class="large-popup-text">
+						<div class="be-custom-select-block mounth">
+							<select class="be-custom-select">
+								<option value="" disabled selected>
+									Mounth
+								</option>
+								<option value="">January</option>
+								<option value="">February</option>
+								<option value="">March</option>
+								<option value="">April</option>
+								<option value="">May</option>
+								<option value="">June</option>
+								<option value="">July</option>
+								<option value="">August</option>
+								<option value="">September</option>
+								<option value="">October</option>
+								<option value="">November</option>
+								<option value="">December</option>
+							</select>
+						</div>
+						<div class="be-custom-select-block">
+							<select class="be-custom-select">
+								<option value="" disabled selected>
+									Day
+								</option>
+								<option value="">1</option>
+								<option value="">2</option>
+								<option value="">3</option>
+								<option value="">4</option>
+								<option value="">5</option>
+								<option value="">6</option>
+								<option value="">7</option>
+								<option value="">8</option>
+								<option value="">9</option>
+								<option value="">10</option>
+								<option value="">11</option>
+								<option value="">12</option>
+								<option value="">13</option>
+								<option value="">14</option>
+								<option value="">15</option>
+								<option value="">16</option>
+								<option value="">17</option>
+								<option value="">18</option>
+								<option value="">19</option>
+								<option value="">20</option>
+								<option value="">21</option>
+								<option value="">22</option>
+								<option value="">23</option>
+								<option value="">24</option>
+								<option value="">25</option>
+								<option value="">26</option>
+								<option value="">27</option>
+								<option value="">28</option>
+								<option value="">29</option>
+								<option value="">30</option>
+							</select>
+						</div>
+						<div class="be-custom-select-block">
+							<select class="be-custom-select">
+								<option value="" disabled selected>
+									Year
+								</option>
+								<option value="">1996</option>
+								<option value="">1997</option>
+								<option value="">1998</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="be-checkbox">
+							<label class="check-box">
+								<input class="checkbox-input" type="checkbox" required="" value="">
+								<span class="check-box-sign"></span>
+							</label>
+							<span class="large-popup-text">
 								I have read and agree to the
 								<a class="be-popup-terms" href="blog-detail-2.html">Terms of Use</a>
 								and
 								<a class="be-popup-terms" href="blog-detail-2.html">Privacy Policy</a>.
 							</span>
-                            </div>
-                            <div class="be-checkbox">
-                                <label class="check-box">
-                                    <input class="checkbox-input" type="checkbox" value="">
-                                    <span class="check-box-sign"></span>
-                                </label>
-                                <span class="large-popup-text">
+						</div>
+						<div class="be-checkbox">
+							<label class="check-box">
+								<input class="checkbox-input" type="checkbox" value="">
+								<span class="check-box-sign"></span>
+							</label>
+							<span class="large-popup-text">
 								Send me notifications
 							</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6 for-signin">
-                            <input type="submit" class="be-popup-sign-button" value="SIGN IN">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div></div>{% block javascripts %}
+						</div>
+					</div>
+					<div class="col-md-6 for-signin">
+						<input type="submit" class="be-popup-sign-button" value="SIGN IN">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div></div>{% block javascripts %}
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -957,290 +966,181 @@
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD2xf9DXZYpg13lDEnoDIM2Us_B2ThL-o&callback=initMap"></script>
 <script>
-    $(document).ready(function () {
-        $("#close").click(function () {
-            $(".alert").fadeOut();
-        });
-    });
+	$(document).ready(function () {
+$("#close").click(function () {
+$(".alert").fadeOut();
+});
+});
 </script>
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoidHJpbGw5MSIsImEiOiJjazVlbWZiMGsxN3NwM2xucXFuOG1mOXluIn0.oOSekCAu1sx63Zv9rgdp3A';
-    var map = new mapboxgl.Map({
-        container: 'mapx',
-        style: 'mapbox://styles/mapbox/dark-v10',
-        center:  [-46.9, 25.8],
-        zoom: 2
-    });
+	$(function () {
+$("#mapx").resizable();
 
-    map.on('load', function () {
-// Add a new source from our GeoJSON data and
-// set the 'cluster' option to true. GL-JS will
-// add the point_count property to your source data.
-        map.addSource('earthquakes', {
-            type: 'geojson',
-// Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
-// from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
-            data: 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson',
-            cluster: true,
-            clusterMaxZoom: 14, // Max zoom to cluster points on
-            clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
-        });
+});
+$( function() {
+$( "#mapx" ).draggable();
 
-        map.addLayer({
-            id: 'clusters',
-            type: 'circle',
-            source: 'earthquakes',
-            filter: ['has', 'point_count'],
-            paint: {
-// Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
-// with three steps to implement three types of circles:
-//   * Blue, 20px circles when point count is less than 100
-//   * Yellow, 30px circles when point count is between 100 and 750
-//   * Pink, 40px circles when point count is greater than or equal to 750
-                'circle-color': [
-                    'step',
-                    ['get', 'point_count'],
-                    '#51bbd6',
-                    100,
-                    '#f1f075',
-                    750,
-                    '#f28cb1'
-                ],
-                'circle-radius': [
-                    'step',
-                    ['get', 'point_count'],
-                    20,
-                    100,
-                    30,
-                    750,
-                    40
-                ]
-            }
-        });
-
-        map.addLayer({
-            id: 'cluster-count',
-            type: 'symbol',
-            source: 'earthquakes',
-            filter: ['has', 'point_count'],
-            layout: {
-                'text-field': '{point_count_abbreviated}',
-                'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-                'text-size': 12
-            }
-        });
-
-        map.addLayer({
-            id: 'unclustered-point',
-            type: 'circle',
-            source: 'earthquakes',
-            filter: ['!', ['has', 'point_count']],
-            paint: {
-                'circle-color': '#11b4da',
-                'circle-radius': 4,
-                'circle-stroke-width': 1,
-                'circle-stroke-color': '#fff'
-            }
-        });
-
-// inspect a cluster on click
-        map.on('click', 'clusters', function (e) {
-            var features = map.queryRenderedFeatures(e.point, {
-                layers: ['clusters']
-            });
-            var clusterId = features[0].properties.cluster_id;
-            map.getSource('earthquakes').getClusterExpansionZoom(
-                clusterId,
-                function (err, zoom) {
-                    if (err) return;
-
-                    map.easeTo({
-                        center: features[0].geometry.coordinates,
-                        zoom: zoom
-                    });
-                }
-            );
-        });
-
-// When a click event occurs on a feature in
-// the unclustered-point layer, open a popup at
-// the location of the feature, with
-// description HTML from its properties.
-        map.on('click', 'unclustered-point', function (e) {
-            var coordinates = e.features[0].geometry.coordinates.slice();
-            var mag = e.features[0].properties.mag;
-            var tsunami;
-
-            if (e.features[0].properties.tsunami === 1) {
-                tsunami = 'yes';
-            } else {
-                tsunami = 'no';
-            }
-
-// Ensure that if the map is zoomed out such that
-// multiple copies of the feature are visible, the
-// popup appears over the copy being pointed to.
-            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            }
-
-            new mapboxgl.Popup()
-                .setLngLat(coordinates)
-                .setHTML(
-                    'magnitude: ' + mag + '<br>Was there a tsunami?: ' + tsunami
-                )
-                .addTo(map);
-        });
-
-        map.on('mouseenter', 'clusters', function () {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-        map.on('mouseleave', 'clusters', function () {
-            map.getCanvas().style.cursor = '';
-        });
-    });
-
-
+  } );
 </script>
 
 
+<script type="text/javascript" charset="utf-8">
 
+
+	$(window).load(function () {
+$('.flexslider').flexslider();
+});
+</script>
 <script>
-    $(document).ready(function () {
-        $("#close").click(function () {
-            $(".alert-success").hide();
-        });
-    });</script>{#<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">#}</script><script src="https://maps.googleapis.com/maps/api/js?Key=AIzaSyCa-UUzOCSPrsuG9_bKyWnyB2QZNgrLIsY-3.exp&sensor=false&libraries=places"></script>{#<script type="text/javascript">#}<script src="script/isotope.pkgd.min.js"></script><script src="script/jquery.viewportchecker.min.js"></script><script src="script/global.js"></script><script><script>
-        jQuery(function ($) {
-        var marker = [],
-        infowindow = [],
-        map,
-        image = 'img/marker.png';;
-        function addMarker(location, name, contentstr) {
-        marker[name] = new google.maps.Marker({position: location, map: map, icon: image});
-        marker[name].setMap(map);
-        infowindow[name] = new google.maps.InfoWindow({content: contentstr});
-        google.maps.event.addListener(marker[name], 'click', function () {
-        infowindow[name].open(map, marker[name]);
-    });
-    }
-        function initialize() {
-        var lat = $('#map-canvas').attr("data-lat");
-        var lng = $('#map-canvas').attr("data-lng");
-        var myLatlng = new google.maps.LatLng(lat, lng);
-        var infoWindow
-        var setZoom = parseInt($('#map-canvas').attr("data-zoom"));
-        var styles = [
-    {
-        "featureType": "administrative",
-        "elementType": "labels.text.fill",
-        "stylers": [
-    {
-        "color": "#444444"
-    }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "elementType": "all",
-        "stylers": [
-    {
-        "color": "#f2f2f2"
-    }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "all",
-        "stylers": [
-    {
-        "visibility": "off"
-    }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "all",
-        "stylers": [
-    {
-        "saturation": -100
-    }, {
-        "lightness": 45
-    }
-        ]
-    }, {
-        "featureType": "road.highway",
-        "elementType": "all",
-        "stylers": [
-    {
-        "visibility": "simplified"
-    }
-        ]
-    }, {
-        "featureType": "road.arterial",
-        "elementType": "labels.icon",
-        "stylers": [
-    {
-        "visibility": "off"
-    }
-        ]
-    }, {
-        "featureType": "transit",
-        "elementType": "all",
-        "stylers": [
-    {
-        "visibility": "off"
-    }
-        ]
-    }, {
-        "featureType": "water",
-        "elementType": "all",
-        "stylers": [
-    {
-        "color": "#46bcec"
-    }, {
-        "visibility": "on"
-    }
-        ]
-    }
-        ];
-        var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
-        var mapOptions = {
-        zoom: setZoom,
-        panControl: false,
-        panControlOptions: {
-        position: google.maps.ControlPosition.LEFT_BOTTOM
-    },
-        zoomControl: true,
-        zoomControlOptions: {
-        style: google.maps.ZoomControlStyle.LARGE,
-        position: google.maps.ControlPosition.LEFT_BOTTOM
-    },
-        streetViewControl: true,
-        streetViewControlOptions: {
-        position: google.maps.ControlPosition.LEFT_BOTTOM
-    },
-        center: myLatlng,
-        mapTypeControlOptions: {
-        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-    }
-    };
-        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        map.mapTypes.set('map_style', styledMap);
-        map.setMapTypeId('map_style');
-        $('.addresses-block a').each(function () {
-        var mark_lat = $(this).attr('data-lat');
-        var mark_lng = $(this).attr('data-lng');
-        var this_index = $('.addresses-block a').index(this);
-        var mark_name = 'template_marker_' + this_index;
-        var mark_locat = new google.maps.LatLng(mark_lat, mark_lng);
-        var mark_str = $(this).attr('data-string');
-        addMarker(mark_locat, mark_name, mark_str);
-    });
-    }
-        $(window).load(function () {
-        setTimeout(function () {
-        initialize();
-    }, 500);
-    });
-    });</script>{% endblock %}</body></html>
+	mapboxgl.accessToken = 'pk.eyJ1IjoidHJpbGw5MSIsImEiOiJjazVlbWZiMGsxN3NwM2xucXFuOG1mOXluIn0.oOSekCAu1sx63Zv9rgdp3A';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [
+-79.4512, 43.6568
+],
+zoom: 13
+});
+
+var geocoder = new MapboxGeocoder({accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl});
+
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+</script></script><script>
+$(document).ready(function () {
+$("#close").click(function () {
+$(".alert-success").hide();
+});
+});</script>{#<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">#}</script><script src="https://maps.googleapis.com/maps/api/js?Key=AIzaSyCa-UUzOCSPrsuG9_bKyWnyB2QZNgrLIsY-3.exp&sensor=false&libraries=places"></script>{#<script type="text/javascript">#}<script src="script/isotope.pkgd.min.js"></script><script src="script/jquery.viewportchecker.min.js"></script><script src="script/global.js"></script><script><script>
+jQuery(function ($) {
+var marker = [],
+infowindow = [],
+map,
+image = 'img/marker.png';;
+function addMarker(location, name, contentstr) {
+marker[name] = new google.maps.Marker({position: location, map: map, icon: image});
+marker[name].setMap(map);
+infowindow[name] = new google.maps.InfoWindow({content: contentstr});
+google.maps.event.addListener(marker[name], 'click', function () {
+infowindow[name].open(map, marker[name]);
+});
+}
+function initialize() {
+var lat = $('#map-canvas').attr("data-lat");
+var lng = $('#map-canvas').attr("data-lng");
+var myLatlng = new google.maps.LatLng(lat, lng);
+var infoWindow
+var setZoom = parseInt($('#map-canvas').attr("data-zoom"));
+var styles = [
+{
+"featureType": "administrative",
+"elementType": "labels.text.fill",
+"stylers": [
+{
+"color": "#444444"
+}
+]
+},
+{
+"featureType": "landscape",
+"elementType": "all",
+"stylers": [
+{
+"color": "#f2f2f2"
+}
+]
+},
+{
+"featureType": "poi",
+"elementType": "all",
+"stylers": [
+{
+"visibility": "off"
+}
+]
+},
+{
+"featureType": "road",
+"elementType": "all",
+"stylers": [
+{
+"saturation": -100
+}, {
+"lightness": 45
+}
+]
+}, {
+"featureType": "road.highway",
+"elementType": "all",
+"stylers": [
+{
+"visibility": "simplified"
+}
+]
+}, {
+"featureType": "road.arterial",
+"elementType": "labels.icon",
+"stylers": [
+{
+"visibility": "off"
+}
+]
+}, {
+"featureType": "transit",
+"elementType": "all",
+"stylers": [
+{
+"visibility": "off"
+}
+]
+}, {
+"featureType": "water",
+"elementType": "all",
+"stylers": [
+{
+"color": "#46bcec"
+}, {
+"visibility": "on"
+}
+]
+}
+];
+var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
+var mapOptions = {
+zoom: setZoom,
+panControl: false,
+panControlOptions: {
+position: google.maps.ControlPosition.LEFT_BOTTOM
+},
+zoomControl: true,
+zoomControlOptions: {
+style: google.maps.ZoomControlStyle.LARGE,
+position: google.maps.ControlPosition.LEFT_BOTTOM
+},
+streetViewControl: true,
+streetViewControlOptions: {
+position: google.maps.ControlPosition.LEFT_BOTTOM
+},
+center: myLatlng,
+mapTypeControlOptions: {
+mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+}
+};
+map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+map.mapTypes.set('map_style', styledMap);
+map.setMapTypeId('map_style');
+$('.addresses-block a').each(function () {
+var mark_lat = $(this).attr('data-lat');
+var mark_lng = $(this).attr('data-lng');
+var this_index = $('.addresses-block a').index(this);
+var mark_name = 'template_marker_' + this_index;
+var mark_locat = new google.maps.LatLng(mark_lat, mark_lng);
+var mark_str = $(this).attr('data-string');
+addMarker(mark_locat, mark_name, mark_str);
+});
+}
+$(window).load(function () {
+setTimeout(function () {
+initialize();
+}, 500);
+});
+});</script>{% endblock %}</body></html>
